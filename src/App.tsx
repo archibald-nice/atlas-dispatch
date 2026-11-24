@@ -28,6 +28,7 @@ import { RegionAnchor } from './RegionAnchor';
 import { indexRegionLocations, regionName } from './regions';
 import type { AnchorRegion } from './regions';
 import type { Locale } from './i18n';
+import { AtlasSelect } from './AtlasSelect';
 import { TooltipLayer } from './TooltipLayer';
 import gemmaLicense from '../assets/gemma-docs-license.json';
 
@@ -210,7 +211,7 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
   const fileInput = useRef<HTMLInputElement>(null);
   const searchToggle = useRef<HTMLButtonElement>(null);
   const searchInput = useRef<HTMLInputElement>(null);
-  const rangeSelect = useRef<HTMLSelectElement>(null);
+  const rangeSelect = useRef<HTMLButtonElement>(null);
   const localeRef = useRef(locale);
   localeRef.current = locale;
   const t = messages[locale];
@@ -528,7 +529,7 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
           {board === 'tech' && <div className="tech-tracks" role="group" aria-label={t.rail.techTracksAria}>
             {techTracks.map(track => <button key={track} type="button" aria-pressed={techTrack === track} onClick={() => changeScope('tech', track)}>{t.rail.techTracks[track]}</button>)}
           </div>}
-          <div className="rail-options"><select ref={rangeSelect} aria-label={t.rail.rangeAria} data-tooltip={t.rail.rangeTip} value={activePeriod} onChange={e => changePeriod(e.target.value as Period)}><option value="day">{t.rail.ranges.day}</option><option value="week">{t.rail.ranges.week}</option><option value="all">{isReleaseTrack ? t.rail.releaseHistory : t.rail.ranges.all}</option></select><SourceFilter variant="rail" locale={locale} options={sourceOptions} total={candidates.length} selected={sourceFilter} onToggle={toggleSource} onReset={resetSources} /><span>{t.rail.rangeNote}</span></div>
+          <div className="rail-options"><AtlasSelect triggerRef={rangeSelect} className="rail-range-select" ariaLabel={t.rail.rangeAria} tooltip={t.rail.rangeTip} value={activePeriod} options={[{ value: 'day', label: t.rail.ranges.day }, { value: 'week', label: t.rail.ranges.week }, { value: 'all', label: isReleaseTrack ? t.rail.releaseHistory : t.rail.ranges.all }]} onChange={changePeriod} /><SourceFilter variant="rail" locale={locale} options={sourceOptions} total={candidates.length} selected={sourceFilter} onToggle={toggleSource} onReset={resetSources} /><span>{t.rail.rangeNote}</span></div>
           {availableTags.length > 0 && <div className="tag-filter-bar" role="group" aria-label={t.tagFilter.aria}>
             <button type="button" aria-pressed={tagFilter === null} onClick={() => setTagFilter(null)}>{t.tagFilter.all}</button>
             {availableTags.map(([tagName, count]) => (
@@ -574,6 +575,16 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
       <span className="texture-note">{t.footer.texture}</span><button type="button" data-tooltip={t.footer.sourcesTip} onClick={() => setSourcesOpen(true)}>{t.footer.snapshot} {formatLocaleDate(activeSnapshot.generatedAt, locale, true)} UTC <span>↗</span></button>
     </footer>
     <div className="gesture-hint"><span>{t.gesture.drag}</span><i />{t.gesture.zoom}<i />{t.gesture.click}</div>
+    {layout === 'globe' && filtered.length > 0 && placeCount === 0 && !selectedEvent && !sceneError && (
+      <div className="globe-unlocated-banner" role="status">
+        <span className="globe-unlocated-icon" aria-hidden="true">◌</span>
+        <span className="globe-unlocated-text">{t.scene.unlocatedOnly(filtered.length)}</span>
+        <button type="button" className="globe-unlocated-action" onClick={() => setLayout('themes')}>
+          <span>{t.scene.unlocatedSwitchThemes}</span>
+          <Icon name="arrow" size={13} />
+        </button>
+      </div>
+    )}
     {!sceneReady && !sceneError && <div className="scene-loading" role="status"><span className="loading-orbit" />{t.scene.loading}</div>}
     {sceneError && <div className="gpu-notice" role="alert"><strong>{t.scene.errorTitle}</strong><span>{sceneError} {t.scene.errorSuffix}</span></div>}
 

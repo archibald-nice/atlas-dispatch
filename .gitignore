@@ -3,6 +3,9 @@ dist/
 /releases/
 /.archify/
 /verification/*.png
+!/verification/filter-gemma-history.png
+!/verification/filter-globe-stable.png
+!/verification/filter-unlocated-narrow.png
 /verification/*.mp4
 /verification/*.json
 .DS_Store

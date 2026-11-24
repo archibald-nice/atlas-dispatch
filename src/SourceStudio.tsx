@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
+import { AtlasSelect } from './AtlasSelect';
 import { normalizeTag, themes } from './domain';
 import type { SourceStatus, ThemeId } from './domain';
 import {
@@ -315,22 +316,26 @@ export function SourceStudio({
               </label>
 
               <div className="studio-row">
-                <label>
+                <div className="studio-field">
                   <span>{s.formatLabel}</span>
-                  <select value={format} onChange={e => setFormat(e.target.value as CustomFeedFormat)}>
-                    {(['auto', 'feed', 'json-feed', 'geojson', 'eonet'] as const).map(f => (
-                      <option key={f} value={f}>{s.formats[f]}</option>
-                    ))}
-                  </select>
-                </label>
-                <label>
+                  <AtlasSelect
+                    className="atlas-select--field"
+                    ariaLabel={s.formatLabel}
+                    value={format}
+                    options={(['auto', 'feed', 'json-feed', 'geojson', 'eonet'] as const).map(f => ({ value: f, label: s.formats[f] }))}
+                    onChange={setFormat}
+                  />
+                </div>
+                <div className="studio-field">
                   <span>{s.themeLabel}</span>
-                  <select value={theme} onChange={e => setTheme(e.target.value as ThemeId)}>
-                    {(Object.keys(themes) as ThemeId[]).map(id => (
-                      <option key={id} value={id}>{themeLabel(id, locale)}</option>
-                    ))}
-                  </select>
-                </label>
+                  <AtlasSelect
+                    className="atlas-select--field"
+                    ariaLabel={s.themeLabel}
+                    value={theme}
+                    options={(Object.keys(themes) as ThemeId[]).map(id => ({ value: id, label: themeLabel(id, locale) }))}
+                    onChange={setTheme}
+                  />
+                </div>
               </div>
 
               <div className="studio-row">

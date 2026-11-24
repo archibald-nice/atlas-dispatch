@@ -289,6 +289,8 @@ const zh = {
     initError: '无法初始化三维场景。',
     errorTitle: '三维场景暂不可用',
     errorSuffix: '资讯仍可从列表阅读。',
+    unlocatedOnly: (count: number) => `当前 ${count} 条线索均无地点坐标，留在「全球 / 未定位」`,
+    unlocatedSwitchThemes: '切换到主题视图',
   },
   gesture: {
     drag: '拖动探索',
@@ -681,6 +683,8 @@ const en: Messages = {
     initError: 'The 3D scene could not be initialized.',
     errorTitle: '3D scene unavailable',
     errorSuffix: 'Dispatches are still available in the list.',
+    unlocatedOnly: (count: number) => `All ${count} matching ${count === 1 ? 'dispatch has' : 'dispatches have'} no geographic coordinates`,
+    unlocatedSwitchThemes: 'View in Themes',
   },
   gesture: {
     drag: 'Drag to explore',
