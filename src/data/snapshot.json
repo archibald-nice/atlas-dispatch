@@ -1,0 +1,3110 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-24T13:40:09.494Z",
+  "sources": [
+    {
+      "id": "usgs",
+      "name": "USGS 地震监测",
+      "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson",
+      "policyUrl": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+      "rights": "USGS 地震目录通常属美国政府公开数据，可复制与再分发并须署名 USGS；本公开候选只保留结构化地震元数据，不据震级推断伤亡、破坏或灾害严重程度。第三方内容除外。",
+      "status": "ok",
+      "fetchedAt": "2026-11-24T13:39:53.740Z",
+      "count": 20,
+      "error": null
+    },
+    {
+      "id": "fed",
+      "name": "美联储理事会",
+      "url": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "policyUrl": "https://www.federalreserve.gov/disclaimer.htm",
+      "rights": "美联储理事会网站内容除特别标注外属公有领域，可复制与分发，但须注明理事会为来源；第三方材料、照片、图形及印章/徽标除外。本公开候选只链接官方新闻稿，不转载标题或摘要。",
+      "status": "ok",
+      "fetchedAt": "2026-11-24T13:39:55.823Z",
+      "count": 8,
+      "error": null
+    },
+    {
+      "id": "ecb",
+      "name": "欧洲央行",
+      "url": "https://www.ecb.europa.eu/rss/press.html",
+      "policyUrl": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html",
+      "rights": "欧洲央行允许在注明来源、保证信息准确并说明修改的前提下免费使用网站信息；含作者署名的文件如工作论文、不定期论文以不同出版物形式再版须事先书面授权。出售含其信息的文件须在付费前及每次访问时告知信息可免费获取。本公开候选只链接官方页面，不构成付费内容或全文再分发授权。",
+      "status": "ok",
+      "fetchedAt": "2026-11-24T13:39:58.622Z",
+      "count": 8,
+      "error": null
+    },
+    {
+      "id": "arxiv",
+      "name": "arXiv 研究元数据",
+      "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+OR+cat%3Acs.LG+OR+cat%3Acs.CL&sortBy=submittedDate&sortOrder=descending&max_results=10",
+      "policyUrl": "https://info.arxiv.org/help/api/tou.html",
+      "rights": "arXiv 允许检索、存储、转换与分享描述性元数据（CC0 1.0）；论文内容版权仍属作者，不得存储或提供 PDF/源码，除非许可允许。本公开候选只保留题录并链接摘要页，不包含论文全文或摘要正文。",
+      "status": "ok",
+      "fetchedAt": "2026-11-24T13:39:58.811Z",
+      "count": 8,
+      "error": null
+    },
+    {
+      "id": "nasa",
+      "name": "NASA 官方内容",
+      "url": "https://www.nasa.gov/news-release/feed/",
+      "policyUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "rights": "NASA 内容通常不受美国版权保护，可在不暗示 NASA 背书的前提下作事实性使用并注明 NASA；第三方版权材料、徽标、可识别人物及商业/周边用途适用额外条件。本公开候选只链接官方页面，不使用图片、徽标或全文。",
+      "status": "ok",
+      "fetchedAt": "2026-11-24T13:39:53.321Z",
+      "count": 6,
+      "error": null
+    },
+    {
+      "id": "gemma",
+      "name": "Google Gemma 官方发布记录",
+      "url": "https://raw.githubusercontent.com/google-gemma/docs/main/docs/models/releases.md",
+      "policyUrl": "https://github.com/google-gemma/docs/blob/main/LICENSE",
+      "rights": "google-gemma/docs 文档源码以 Apache-2.0 授权；本公开候选摘录官方发布条目并生成中文标题，已注明修改并随附许可证。文档许可不等于各模型权重许可，也不表示 Google 或 DeepMind 背书。",
+      "status": "ok",
+      "fetchedAt": "2026-11-24T13:39:54.280Z",
+      "count": 8,
+      "error": null
+    },
+    {
+      "id": "eonet",
+      "name": "NASA EONET 自然事件",
+      "url": "https://eonet.gsfc.nasa.gov/api/v3/events?status=open&days=30&limit=100",
+      "policyUrl": "https://eonet.gsfc.nasa.gov/docs/v3",
+      "rights": "NASA EONET 地球观测自然事件元数据属美国政府公开数据（CC0）；本产品只展示官方结构化事件元数据并署名 NASA EONET，不据事件类型推断伤亡、损失或灾害严重程度。第三方链接与图像适用各自条款。",
+      "status": "ok",
+      "fetchedAt": "2026-11-24T13:40:09.491Z",
+      "count": 16,
+      "error": null
+    },
+    {
+      "id": "gdacs",
+      "name": "GDACS 全球灾害警报",
+      "url": "https://www.gdacs.org/xml/rss.xml",
+      "policyUrl": "https://www.gdacs.org/About/overview.aspx",
+      "rights": "GDACS 由联合国与欧盟联合运营，允许在署名 Global Disaster Alert and Coordination System (GDACS) 前提下用于公益与信息展示；警报多由自动模型生成，仅供参考，不替代当地官方应急通知。",
+      "status": "ok",
+      "fetchedAt": "2026-11-24T13:40:07.802Z",
+      "count": 18,
+      "error": null
+    },
+    {
+      "id": "rba",
+      "name": "澳大利亚储备银行",
+      "url": "https://www.rba.gov.au/rss/rss-cb-media-releases.xml",
+      "policyUrl": "https://www.rba.gov.au/copyright/",
+      "rights": "澳大利亚储备银行新闻稿正文按 CC BY 4.0 国际许可协议提供，署名 Reserve Bank of Australia 即可共享与使用；徽标、钞票图像及第三方数据除外。",
+      "status": "ok",
+      "fetchedAt": "2026-11-24T13:39:53.552Z",
+      "count": 1,
+      "error": null
+    }
+  ],
+  "events": [
+    {
+      "id": "25f513c32570a16900f9de9d22146cd8559b5f81ddf76b5a859dfbb41154f9e5",
+      "title": "Green flood alert in Portugal",
+      "titleOriginal": "Green flood alert in Portugal",
+      "summary": "On 20/11/2026, a flood started in Portugal, lasting until 24/11/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-11-24T12:04:01.000Z",
+      "occurredAt": "2026-11-20T01:00:00.000Z",
+      "locations": [
+        {
+          "lat": 39.6036596,
+          "lon": -8.4150492,
+          "label": "Portugal",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 39.6037，经度 -8.4150）；事件类型：洪涝，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1104298&eventtype=FL",
+          "publishedAt": "2026-11-24T12:04:01.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：洪涝；警报级别：绿色提示；涉及区域：Portugal。",
+        "报告发布时间：2026-11-24T12:04:01.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "1472ca0ef6fd8f56793b154bb6b1a09b7be9ae8c7da1e006803c1d16b4183666",
+      "title": "M 5.2 - 93 km WSW of Puerto Madero, Mexico",
+      "titleOriginal": "M 5.2 - 93 km WSW of Puerto Madero, Mexico",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-24T11:51:44.702Z",
+      "occurredAt": "2026-11-24T11:51:44.702Z",
+      "locations": [
+        {
+          "lat": 14.442,
+          "lon": -93.2417,
+          "label": "93 km WSW of Puerto Madero, Mexico",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 14.4420，经度 -93.2417）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ud6z",
+          "publishedAt": "2026-11-24T11:51:44.702Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "a97b75909916512595f601fe60a1d0568800aa2649d2c566c629172ff438ae35",
+      "title": "M 6.4 - Mauritius - Reunion region",
+      "titleOriginal": "M 6.4 - Mauritius - Reunion region",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-24T11:06:14.036Z",
+      "occurredAt": "2026-11-24T11:06:14.036Z",
+      "locations": [
+        {
+          "lat": -17.7049,
+          "lon": 65.6995,
+          "label": "Mauritius - Reunion region",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 -17.7049，经度 65.6995）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ud6h",
+          "publishedAt": "2026-11-24T11:06:14.036Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "9dd0cf34a163dcee5d9b8b7a5058a9c42c1e32660a249ea6443eb70084615c83",
+      "title": "欧洲央行新闻稿 · 2026-11-24",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-24T11:00:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 50.1109,
+          "lon": 8.6821,
+          "label": "法兰克福（欧洲央行）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "欧洲央行总部位于德国法兰克福；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "欧洲央行",
+          "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261124~17928e5456.en.html",
+          "publishedAt": "2026-11-24T11:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：欧洲央行；官方原文发布时间 2026-11-24T11:00:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "欧洲央行材料可能受付费/订阅或署名文章例外约束；本候选不构成付费内容或全文再分发授权。"
+      ],
+      "sourceId": "ecb",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "a12396eda6d1cbfcaebadc1d8977cd66eeefaec51ad57cc43ba1b22c6a5aa160",
+      "title": "Green notification for tropical cyclone 03-20262027-27. Population affected by Category 1 (120 km/h) wind speeds or higher is 0 (0 in Tropical Storm).",
+      "titleOriginal": "Green notification for tropical cyclone 03-20262027-27. Population affected by Category 1 (120 km/h) wind speeds or higher is 0 (0 in Tropical Storm).",
+      "summary": "From 24/11/2026 to 24/11/2026, a Tropical Depression (maximum wind speed of 63 km/h) 03-20262027-27 was active in SWIndian. The cyclone affects these countries: [unknown] (vulnerability [unknown]). Estimated population affected by category 1 (120 km/h) wind speeds or higher is 0 (0 in tropical storm).",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-11-24T07:05:20.000Z",
+      "occurredAt": "2026-11-24T06:00:00.000Z",
+      "locations": [
+        {
+          "lat": -10.08,
+          "lon": 77.27,
+          "label": "03-20262027-27",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 -10.0800，经度 77.2700）；事件类型：热带气旋，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1001352&eventtype=TC",
+          "publishedAt": "2026-11-24T07:05:20.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：热带气旋；警报级别：绿色提示。",
+        "报告发布时间：2026-11-24T07:05:20.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "1eb8ac93ffef263ef30db54ecc6212674838cd0b3315b564476abd92ec07a5c4",
+      "title": "NASA 新闻稿 · 2026-11-24",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "space",
+      "kind": "NASA 发布",
+      "publishedAt": "2026-11-24T05:05:00.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "NASA",
+          "url": "https://science.nasa.gov/image-article/apod-2026-november-24-galaxies-battle-in-the-ngc-7771-group/",
+          "publishedAt": "2026-11-24T05:05:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：NASA 官方内容；官方原文发布时间 2026-11-24T05:05:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "NASA 内容作事实性使用，不暗示 NASA 背书；不使用 NASA 徽标、图片或第三方版权材料。"
+      ],
+      "sourceId": "nasa",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "94fa0645861b11a7eae7e03905fbdf750bdbe4f3575ac0240ceb695d4d5a663a",
+      "title": "NASA 新闻稿 · 2026-11-24",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "space",
+      "kind": "NASA 发布",
+      "publishedAt": "2026-11-24T05:01:00.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "NASA",
+          "url": "https://science.nasa.gov/earth/earth-observatory/eruption-extends-iwo-jimas-beach/",
+          "publishedAt": "2026-11-24T05:01:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：NASA 官方内容；官方原文发布时间 2026-11-24T05:01:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "NASA 内容作事实性使用，不暗示 NASA 背书；不使用 NASA 徽标、图片或第三方版权材料。"
+      ],
+      "sourceId": "nasa",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "2afda7acafbb08dca552b6a7e50a72c367f8cc3875c752e21fc6fec87039318f",
+      "title": "M 5.3 - 67 km WNW of Mangan, India",
+      "titleOriginal": "M 5.3 - 67 km WNW of Mangan, India",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-24T01:32:42.417Z",
+      "occurredAt": "2026-11-24T01:32:42.417Z",
+      "locations": [
+        {
+          "lat": 27.8328,
+          "lon": 87.9467,
+          "label": "67 km WNW of Mangan, India",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 27.8328，经度 87.9467）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ud3i",
+          "publishedAt": "2026-11-24T01:32:42.417Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "dbc21f2311a31d883af57922a7c3f8c9062f889ab23cf7e15d0ff4d96f80cf5a",
+      "title": "NASA 新闻稿 · 2026-11-23",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "space",
+      "kind": "NASA 发布",
+      "publishedAt": "2026-11-23T21:10:03.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "NASA",
+          "url": "https://www.nasa.gov/news-release/nasa-awards-contract-for-noaas-near-earth-orbit-network-program/",
+          "publishedAt": "2026-11-23T21:10:03.000Z"
+        }
+      ],
+      "facts": [
+        "来源：NASA 官方内容；官方原文发布时间 2026-11-23T21:10:03.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "NASA 内容作事实性使用，不暗示 NASA 背书；不使用 NASA 徽标、图片或第三方版权材料。"
+      ],
+      "sourceId": "nasa",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "fd3b1a92f1ee25f1a572c4137b07bff11b8e769dbc0a0105d7cbd0c69d0e3337",
+      "title": "Pruning Autonomous Driving VLAs: What to Preserve for Reasoning and Action",
+      "titleOriginal": "Pruning Autonomous Driving VLAs: What to Preserve for Reasoning and Action",
+      "summary": "arXiv API 描述性元数据；本公开候选只保留题录并链接官方摘要页，不包含论文全文、PDF 或摘要正文。",
+      "theme": "ai",
+      "kind": "研究预印本",
+      "publishedAt": "2026-11-23T18:59:52.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "arXiv",
+          "url": "https://arxiv.org/abs/2611.31240v1",
+          "publishedAt": "2026-11-23T18:59:52.000Z"
+        }
+      ],
+      "facts": [
+        "来源：arXiv API 描述性元数据（CC0 1.0）；未包含论文全文、PDF 或源码。",
+        "论文版权仍属作者；预印本未经同行评审。",
+        "arXiv 仅为元数据来源，不表示对本项目的背书。"
+      ],
+      "sourceId": "arxiv",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "bee131651fba406ade08a098e1e16e209d7f353a71e728bd91056a79f9c53b9c",
+      "title": "Let Vision-Language Models Generate Images through Their Representations",
+      "titleOriginal": "Let Vision-Language Models Generate Images through Their Representations",
+      "summary": "arXiv API 描述性元数据；本公开候选只保留题录并链接官方摘要页，不包含论文全文、PDF 或摘要正文。",
+      "theme": "ai",
+      "kind": "研究预印本",
+      "publishedAt": "2026-11-23T18:59:32.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "arXiv",
+          "url": "https://arxiv.org/abs/2611.31237v1",
+          "publishedAt": "2026-11-23T18:59:32.000Z"
+        }
+      ],
+      "facts": [
+        "来源：arXiv API 描述性元数据（CC0 1.0）；未包含论文全文、PDF 或源码。",
+        "论文版权仍属作者；预印本未经同行评审。",
+        "arXiv 仅为元数据来源，不表示对本项目的背书。"
+      ],
+      "sourceId": "arxiv",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "6fe5a8a045a04b7737339b0237b36205787aa13615396bc4366fb07d40de4757",
+      "title": "TowerBridge: Bridging the Dual-Encoder Modality Gap via Weight-Space Programming",
+      "titleOriginal": "TowerBridge: Bridging the Dual-Encoder Modality Gap via Weight-Space Programming",
+      "summary": "arXiv API 描述性元数据；本公开候选只保留题录并链接官方摘要页，不包含论文全文、PDF 或摘要正文。",
+      "theme": "ai",
+      "kind": "研究预印本",
+      "publishedAt": "2026-11-23T18:59:13.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "arXiv",
+          "url": "https://arxiv.org/abs/2611.31233v1",
+          "publishedAt": "2026-11-23T18:59:13.000Z"
+        }
+      ],
+      "facts": [
+        "来源：arXiv API 描述性元数据（CC0 1.0）；未包含论文全文、PDF 或源码。",
+        "论文版权仍属作者；预印本未经同行评审。",
+        "arXiv 仅为元数据来源，不表示对本项目的背书。"
+      ],
+      "sourceId": "arxiv",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "27cdf9aacd6a01911b175aabf20b08883cbd992ca7b913d98f28cc94d37064d7",
+      "title": "Language Models Steer on Injected Uncertainty Tokens, but Fail to Self-Monitor In Situ",
+      "titleOriginal": "Language Models Steer on Injected Uncertainty Tokens, but Fail to Self-Monitor In Situ",
+      "summary": "arXiv API 描述性元数据；本公开候选只保留题录并链接官方摘要页，不包含论文全文、PDF 或摘要正文。",
+      "theme": "ai",
+      "kind": "研究预印本",
+      "publishedAt": "2026-11-23T18:58:52.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "arXiv",
+          "url": "https://arxiv.org/abs/2611.31228v1",
+          "publishedAt": "2026-11-23T18:58:52.000Z"
+        }
+      ],
+      "facts": [
+        "来源：arXiv API 描述性元数据（CC0 1.0）；未包含论文全文、PDF 或源码。",
+        "论文版权仍属作者；预印本未经同行评审。",
+        "arXiv 仅为元数据来源，不表示对本项目的背书。"
+      ],
+      "sourceId": "arxiv",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "4a4f5c952ea394e142e6d23e28b08ab62c29ebbf4a1480da134999693e2b269f",
+      "title": "How Far Can Linear Go? BiPert, a Unified Framework for Single-Cell Perturbation Modelling",
+      "titleOriginal": "How Far Can Linear Go? BiPert, a Unified Framework for Single-Cell Perturbation Modelling",
+      "summary": "arXiv API 描述性元数据；本公开候选只保留题录并链接官方摘要页，不包含论文全文、PDF 或摘要正文。",
+      "theme": "ai",
+      "kind": "研究预印本",
+      "publishedAt": "2026-11-23T18:58:32.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "arXiv",
+          "url": "https://arxiv.org/abs/2611.31227v1",
+          "publishedAt": "2026-11-23T18:58:32.000Z"
+        }
+      ],
+      "facts": [
+        "来源：arXiv API 描述性元数据（CC0 1.0）；未包含论文全文、PDF 或源码。",
+        "论文版权仍属作者；预印本未经同行评审。",
+        "arXiv 仅为元数据来源，不表示对本项目的背书。"
+      ],
+      "sourceId": "arxiv",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "8da7a8944a71eae17d2531a1e1b86f48bac60859d7caa2006a4dcb01e49c663b",
+      "title": "Self-Supervised Dataset Distillation via Mutual Information Maximization",
+      "titleOriginal": "Self-Supervised Dataset Distillation via Mutual Information Maximization",
+      "summary": "arXiv API 描述性元数据；本公开候选只保留题录并链接官方摘要页，不包含论文全文、PDF 或摘要正文。",
+      "theme": "ai",
+      "kind": "研究预印本",
+      "publishedAt": "2026-11-23T18:58:27.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "arXiv",
+          "url": "https://arxiv.org/abs/2611.31225v1",
+          "publishedAt": "2026-11-23T18:58:27.000Z"
+        }
+      ],
+      "facts": [
+        "来源：arXiv API 描述性元数据（CC0 1.0）；未包含论文全文、PDF 或源码。",
+        "论文版权仍属作者；预印本未经同行评审。",
+        "arXiv 仅为元数据来源，不表示对本项目的背书。"
+      ],
+      "sourceId": "arxiv",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "d133edb5258ec9cb84b37f3b59c7d78138ea214a60f7b93f79c16d67769150c1",
+      "title": "Agentic AI for Intent Management and Control in Autonomous Communication Networks",
+      "titleOriginal": "Agentic AI for Intent Management and Control in Autonomous Communication Networks",
+      "summary": "arXiv API 描述性元数据；本公开候选只保留题录并链接官方摘要页，不包含论文全文、PDF 或摘要正文。",
+      "theme": "ai",
+      "kind": "研究预印本",
+      "publishedAt": "2026-11-23T18:57:32.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "arXiv",
+          "url": "https://arxiv.org/abs/2611.31223v1",
+          "publishedAt": "2026-11-23T18:57:32.000Z"
+        }
+      ],
+      "facts": [
+        "来源：arXiv API 描述性元数据（CC0 1.0）；未包含论文全文、PDF 或源码。",
+        "论文版权仍属作者；预印本未经同行评审。",
+        "arXiv 仅为元数据来源，不表示对本项目的背书。"
+      ],
+      "sourceId": "arxiv",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "fc5c1b5e7cefe9aece8a4a24fcb70ce83387422dfda580bb2eaacdcd075c4681",
+      "title": "CTLink: A Text-Prompted Segmentation Model for Linking Radiology Report Findings to 3D Chest CT Scans",
+      "titleOriginal": "CTLink: A Text-Prompted Segmentation Model for Linking Radiology Report Findings to 3D Chest CT Scans",
+      "summary": "arXiv API 描述性元数据；本公开候选只保留题录并链接官方摘要页，不包含论文全文、PDF 或摘要正文。",
+      "theme": "ai",
+      "kind": "研究预印本",
+      "publishedAt": "2026-11-23T18:57:26.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "arXiv",
+          "url": "https://arxiv.org/abs/2611.31222v1",
+          "publishedAt": "2026-11-23T18:57:26.000Z"
+        }
+      ],
+      "facts": [
+        "来源：arXiv API 描述性元数据（CC0 1.0）；未包含论文全文、PDF 或源码。",
+        "论文版权仍属作者；预印本未经同行评审。",
+        "arXiv 仅为元数据来源，不表示对本项目的背书。"
+      ],
+      "sourceId": "arxiv",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "34e8c2510d099244b6f0e2cc55a921294ec7d14ff9ecb3a1c6b1bf26e9aadf85",
+      "title": "NASA 新闻稿 · 2026-11-23",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "space",
+      "kind": "NASA 发布",
+      "publishedAt": "2026-11-23T17:28:37.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "NASA",
+          "url": "https://www.nasa.gov/image-article/studying-cancer-cells-in-microgravity/",
+          "publishedAt": "2026-11-23T17:28:37.000Z"
+        }
+      ],
+      "facts": [
+        "来源：NASA 官方内容；官方原文发布时间 2026-11-23T17:28:37.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "NASA 内容作事实性使用，不暗示 NASA 背书；不使用 NASA 徽标、图片或第三方版权材料。"
+      ],
+      "sourceId": "nasa",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "06989a906fe2b1c9f935029a7e2bab2975f4055a65d19610b1da31b76c638804",
+      "title": "NASA 新闻稿 · 2026-11-23",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "space",
+      "kind": "NASA 发布",
+      "publishedAt": "2026-11-23T17:23:50.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "NASA",
+          "url": "https://www.nasa.gov/directorates/rtmd/nasa-seeks-partners-to-design-first-nuclear-reactor-for-the-moon/",
+          "publishedAt": "2026-11-23T17:23:50.000Z"
+        }
+      ],
+      "facts": [
+        "来源：NASA 官方内容；官方原文发布时间 2026-11-23T17:23:50.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "NASA 内容作事实性使用，不暗示 NASA 背书；不使用 NASA 徽标、图片或第三方版权材料。"
+      ],
+      "sourceId": "nasa",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "80d6f0bf56ba74901bfecf35f3ffe7e9d1bc8ffd9011dc4943d5e034a139822c",
+      "title": "NASA 新闻稿 · 2026-11-23",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "space",
+      "kind": "NASA 发布",
+      "publishedAt": "2026-11-23T16:08:23.000Z",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "NASA",
+          "url": "https://www.nasa.gov/missions/europa-clipper/nasa-documentary-captures-europa-clippers-journey-into-deep-space/",
+          "publishedAt": "2026-11-23T16:08:23.000Z"
+        }
+      ],
+      "facts": [
+        "来源：NASA 官方内容；官方原文发布时间 2026-11-23T16:08:23.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "NASA 内容作事实性使用，不暗示 NASA 背书；不使用 NASA 徽标、图片或第三方版权材料。"
+      ],
+      "sourceId": "nasa",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "54dd153976e3073e5d7031b83ba8ce943b1100542f1aefcbc35c196c7ff46294",
+      "title": "欧洲央行新闻稿 · 2026-11-23",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-23T14:30:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 50.1109,
+          "lon": 8.6821,
+          "label": "法兰克福（欧洲央行）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "欧洲央行总部位于德国法兰克福；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "欧洲央行",
+          "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261123~b5816801a0.en.pdf",
+          "publishedAt": "2026-11-23T14:30:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：欧洲央行；官方原文发布时间 2026-11-23T14:30:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "欧洲央行材料可能受付费/订阅或署名文章例外约束；本候选不构成付费内容或全文再分发授权。"
+      ],
+      "sourceId": "ecb",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "210e0d6c766da748ed4a5d0205009fe3d7c494fba6ae44ca5665785c506854cf",
+      "title": "Green flood alert in Thailand",
+      "titleOriginal": "Green flood alert in Thailand",
+      "summary": "On 22/11/2026, a flood started in Thailand, lasting until 24/11/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-11-23T13:55:00.000Z",
+      "occurredAt": "2026-11-22T01:00:00.000Z",
+      "locations": [
+        {
+          "lat": 7.543525,
+          "lon": 99.9971582,
+          "label": "Thailand",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 7.5435，经度 99.9972）；事件类型：洪涝，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1104297&eventtype=FL",
+          "publishedAt": "2026-11-23T13:55:00.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：洪涝；警报级别：绿色提示；涉及区域：Thailand。",
+        "报告发布时间：2026-11-23T13:55:00.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "af006464a7a620a83cd98251aa09396074e41f0e62cdeea2d8b9403ff40fa055",
+      "title": "Green flood alert in Ireland",
+      "titleOriginal": "Green flood alert in Ireland",
+      "summary": "On 22/11/2026, a flood started in Ireland, lasting until 24/11/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-11-23T12:15:51.000Z",
+      "occurredAt": "2026-11-22T01:00:00.000Z",
+      "locations": [
+        {
+          "lat": 51.6797696,
+          "lon": -9.4523603,
+          "label": "Ireland",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 51.6798，经度 -9.4524）；事件类型：洪涝，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1104295&eventtype=FL",
+          "publishedAt": "2026-11-23T12:15:51.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：洪涝；警报级别：绿色提示；涉及区域：Ireland。",
+        "报告发布时间：2026-11-23T12:15:51.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "aa88c202324d94018746ea27483a13e7c97a4c77ea1e0b11d557efb5a4ee525a",
+      "title": "欧洲央行新闻稿 · 2026-11-23",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-23T10:00:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 50.1109,
+          "lon": 8.6821,
+          "label": "法兰克福（欧洲央行）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "欧洲央行总部位于德国法兰克福；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "欧洲央行",
+          "url": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr261123~76b6f57b74.en.html",
+          "publishedAt": "2026-11-23T10:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：欧洲央行；官方原文发布时间 2026-11-23T10:00:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "欧洲央行材料可能受付费/订阅或署名文章例外约束；本候选不构成付费内容或全文再分发授权。"
+      ],
+      "sourceId": "ecb",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "323c11f6510889062b9ec13658ea8805819e916a71122465fac824fe4f7128ba",
+      "title": "M 5.5 - west of Macquarie Island",
+      "titleOriginal": "M 5.5 - west of Macquarie Island",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-23T08:01:26.457Z",
+      "occurredAt": "2026-11-23T08:01:26.457Z",
+      "locations": [
+        {
+          "lat": -60.6317,
+          "lon": 153.8482,
+          "label": "west of Macquarie Island",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 -60.6317，经度 153.8482）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucxi",
+          "publishedAt": "2026-11-23T08:01:26.457Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "0c89c1ccc4d78348cca0efbe96e2b2b4df2d997adb47968d6264a73d29ad12ad",
+      "title": "Green flood alert in Colombia",
+      "titleOriginal": "Green flood alert in Colombia",
+      "summary": "On 18/11/2026, a flood started in Colombia, lasting until 20/11/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-11-23T07:13:16.000Z",
+      "occurredAt": "2026-11-18T01:00:00.000Z",
+      "locations": [
+        {
+          "lat": 6.2124521,
+          "lon": -75.5025086,
+          "label": "Colombia",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 6.2125，经度 -75.5025）；事件类型：洪涝，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1104294&eventtype=FL",
+          "publishedAt": "2026-11-23T07:13:16.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：洪涝；警报级别：绿色提示；涉及区域：Colombia。",
+        "报告发布时间：2026-11-23T07:13:16.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "f73b19fe7f1ca8e2374e8bd6be3be6ec30b611a5d5db67024b95984659c3bab9",
+      "title": "M 6.5 - Vanuatu region",
+      "titleOriginal": "M 6.5 - Vanuatu region",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-23T02:40:58.052Z",
+      "occurredAt": "2026-11-23T02:40:58.052Z",
+      "locations": [
+        {
+          "lat": -13.5846,
+          "lon": 172.2672,
+          "label": "Vanuatu region",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 -13.5846，经度 172.2672）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucvm",
+          "publishedAt": "2026-11-23T02:40:58.052Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "4d40014ce79a2b867e93904955054cc0a2da8cb3e7f47434a5616da466671b4e",
+      "title": "Tropical Cyclone Xavier",
+      "titleOriginal": "Tropical Cyclone Xavier",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-23T00:00:00.000Z",
+      "occurredAt": "2026-11-23T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": -11.8,
+          "lon": -168.8,
+          "label": "Tropical Cyclone Xavier",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 -11.8000，经度 -168.8000）；类别：强风暴。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://www.metoc.navy.mil/jtwc/products/sh0427.tcw",
+          "publishedAt": "2026-11-23T00:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：强风暴；最新观测度量 30 kts。",
+        "最新观测时间：2026-11-23T00:00:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "4b770087ebb6831136d2829948a6691c60786f79aa42703d887ef75425ebf587",
+      "title": "Green flood alert in Chile",
+      "titleOriginal": "Green flood alert in Chile",
+      "summary": "On 20/11/2026, a flood started in Chile, lasting until 22/11/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-11-22T11:21:43.000Z",
+      "occurredAt": "2026-11-20T01:00:00.000Z",
+      "locations": [
+        {
+          "lat": -33.1045621,
+          "lon": -71.6675632,
+          "label": "Chile",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 -33.1046，经度 -71.6676）；事件类型：洪涝，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1104293&eventtype=FL",
+          "publishedAt": "2026-11-22T11:21:43.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：洪涝；警报级别：绿色提示；涉及区域：Chile。",
+        "报告发布时间：2026-11-22T11:21:43.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "7ed4c553ffab1519581f999a95b74135dbe124c13c28010ef21506e69560018f",
+      "title": "M 5.4 - 224 km NE of Bitung, Indonesia",
+      "titleOriginal": "M 5.4 - 224 km NE of Bitung, Indonesia",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-22T07:54:40.056Z",
+      "occurredAt": "2026-11-22T07:54:40.056Z",
+      "locations": [
+        {
+          "lat": 3.0314,
+          "lon": 126.3861,
+          "label": "224 km NE of Bitung, Indonesia",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 3.0314，经度 126.3861）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucrb",
+          "publishedAt": "2026-11-22T07:54:40.056Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "4e6034fc20a6a7b9454f61d2e3d5cf9eb4d7dfb5bfcc50351c0c5361a89a1f9d",
+      "title": "Wildfire Little Ridge, Highland, Virginia",
+      "titleOriginal": "Wildfire Little Ridge, Highland, Virginia",
+      "summary": "12 Miles SW from Monterey, VA",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-21T23:15:00.000Z",
+      "occurredAt": "2026-11-21T23:15:00.000Z",
+      "locations": [
+        {
+          "lat": 38.313617,
+          "lon": -79.791367,
+          "label": "Wildfire Little Ridge, Highland, Virginia",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 38.3136，经度 -79.7914）；类别：野火。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://irwin.doi.gov/observer/incidents/2026-VAVAF-260139",
+          "publishedAt": "2026-11-21T23:15:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：野火；最新观测度量 900 acres。",
+        "最新观测时间：2026-11-21T23:15:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "source"
+    },
+    {
+      "id": "89cf69af778ff8f2127f6065f2c08431b49544c55ee27939e5ccaedb73f0e3a1",
+      "title": "M 5.9 - 238 km SW of Yanglong, China",
+      "titleOriginal": "M 5.9 - 238 km SW of Yanglong, China",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-21T10:45:33.230Z",
+      "occurredAt": "2026-11-21T10:45:33.230Z",
+      "locations": [
+        {
+          "lat": 37.1958,
+          "lon": 96.6398,
+          "label": "238 km SW of Yanglong, China",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 37.1958，经度 96.6398）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucly",
+          "publishedAt": "2026-11-21T10:45:33.230Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "7d439c4e2f3108025c8ea90c18535b33e6df326f293b0c6df21aa1144c8be136",
+      "title": "M 5.2 - 112 km SSE of Tateyama, Japan",
+      "titleOriginal": "M 5.2 - 112 km SSE of Tateyama, Japan",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-21T10:09:05.474Z",
+      "occurredAt": "2026-11-21T10:09:05.474Z",
+      "locations": [
+        {
+          "lat": 34.0109,
+          "lon": 140.2109,
+          "label": "112 km SSE of Tateyama, Japan",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 34.0109，经度 140.2109）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucky",
+          "publishedAt": "2026-11-21T10:09:05.474Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "74bed02eb54a7db87609c366bfc56ec73b2ce259e437fd265b42af2ed9a151e8",
+      "title": "M 6.8 - 105 km NE of Lospalos, Timor Leste",
+      "titleOriginal": "M 6.8 - 105 km NE of Lospalos, Timor Leste",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-21T09:42:09.120Z",
+      "occurredAt": "2026-11-21T09:42:09.120Z",
+      "locations": [
+        {
+          "lat": -7.7324,
+          "lon": 127.5407,
+          "label": "105 km NE of Lospalos, Timor Leste",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 -7.7324，经度 127.5407）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucij",
+          "publishedAt": "2026-11-21T09:42:09.120Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "d9291810d1afcabc4556edc2d5a08d34d133222e3359e6e018350192c16da461",
+      "title": "M 6.7 - 7 km ENE of Carhuamayo, Peru",
+      "titleOriginal": "M 6.7 - 7 km ENE of Carhuamayo, Peru",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-21T00:09:21.810Z",
+      "occurredAt": "2026-11-21T00:09:21.810Z",
+      "locations": [
+        {
+          "lat": -10.8889,
+          "lon": -75.966,
+          "label": "7 km ENE of Carhuamayo, Peru",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 -10.8889，经度 -75.9660）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ucfm",
+          "publishedAt": "2026-11-21T00:09:21.810Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "901ead25f77030d35e14bae1dcd8aec10abad0be5e633af566f9a2062158c427",
+      "title": "美联储理事会新闻稿 · 2026-11-20",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-20T21:15:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 38.8921,
+          "lon": -77.0351,
+          "label": "华盛顿特区（美联储理事会）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "美联储理事会位于华盛顿特区；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "美联储理事会",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261120b.htm",
+          "publishedAt": "2026-11-20T21:15:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：美联储理事会；官方原文发布时间 2026-11-20T21:15:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "美联储理事会材料除特别标注外属公有领域；须注明理事会为来源，第三方材料与徽标除外。"
+      ],
+      "sourceId": "fed",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "17895a8eb35ea7cd26e15a25357c0430ddbd37215c659bc8e3a1974d545a6557",
+      "title": "美联储理事会新闻稿 · 2026-11-20",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-20T15:00:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 38.8921,
+          "lon": -77.0351,
+          "label": "华盛顿特区（美联储理事会）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "美联储理事会位于华盛顿特区；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "美联储理事会",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261120a.htm",
+          "publishedAt": "2026-11-20T15:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：美联储理事会；官方原文发布时间 2026-11-20T15:00:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "美联储理事会材料除特别标注外属公有领域；须注明理事会为来源，第三方材料与徽标除外。"
+      ],
+      "sourceId": "fed",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "610e862aa34c53b4baf25b7aa5680a8ce5c3908b3669f49d3e77cb4be64c0ee1",
+      "title": "Green flood alert in United States",
+      "titleOriginal": "Green flood alert in United States",
+      "summary": "On 17/11/2026, a flood started in United States, lasting until 19/11/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-11-20T09:07:26.000Z",
+      "occurredAt": "2026-11-17T01:00:00.000Z",
+      "locations": [
+        {
+          "lat": 33.9926803,
+          "lon": -117.760056,
+          "label": "United States",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 33.9927，经度 -117.7601）；事件类型：洪涝，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1104290&eventtype=FL",
+          "publishedAt": "2026-11-20T09:07:26.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：洪涝；警报级别：绿色提示；涉及区域：United States。",
+        "报告发布时间：2026-11-20T09:07:26.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "9ae782ed2b4509fbe9e970946148e73653ca5847c21c911bbf389801f6984038",
+      "title": "M 5.4 - Carlsberg Ridge",
+      "titleOriginal": "M 5.4 - Carlsberg Ridge",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-20T08:44:11.644Z",
+      "occurredAt": "2026-11-20T08:44:11.644Z",
+      "locations": [
+        {
+          "lat": 9.7949,
+          "lon": 57.7485,
+          "label": "Carlsberg Ridge",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 9.7949，经度 57.7485）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000uc82",
+          "publishedAt": "2026-11-20T08:44:11.644Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "f3a4b4f78354560acc46a71361095d610ac4891333fc403e7985ff47cdcadc4a",
+      "title": "欧洲央行新闻稿 · 2026-11-20",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-20T08:30:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 50.1109,
+          "lon": 8.6821,
+          "label": "法兰克福（欧洲央行）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "欧洲央行总部位于德国法兰克福；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "欧洲央行",
+          "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261120~e52bcc4db2.en.html",
+          "publishedAt": "2026-11-20T08:30:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：欧洲央行；官方原文发布时间 2026-11-20T08:30:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "欧洲央行材料可能受付费/订阅或署名文章例外约束；本候选不构成付费内容或全文再分发授权。"
+      ],
+      "sourceId": "ecb",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "b93e53b99b52903eb1f4ff79b95bb978c9c60f79b419f9383470f6bf710479a1",
+      "title": "M 5.6 - southeast of the Loyalty Islands",
+      "titleOriginal": "M 5.6 - southeast of the Loyalty Islands",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-20T00:49:14.102Z",
+      "occurredAt": "2026-11-20T00:49:14.102Z",
+      "locations": [
+        {
+          "lat": -24.6996,
+          "lon": 171.2326,
+          "label": "southeast of the Loyalty Islands",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 -24.6996，经度 171.2326）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000uc4v",
+          "publishedAt": "2026-11-20T00:49:14.102Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "1833cd472c487963c1395c2e2e9966947316ad069f55ddfd1f744c42efb82437",
+      "title": "Iceberg C39",
+      "titleOriginal": "Iceberg C39",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "occurredAt": "2026-11-20T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": -65.32,
+          "lon": 54,
+          "label": "Iceberg C39",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 -65.3200，经度 54.0000）；类别：海冰／湖冰。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://usicecenter.gov/pub/Iceberg_Tabular.csv",
+          "publishedAt": "2026-11-20T00:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：海冰／湖冰；最新观测度量 24 NM^2。",
+        "最新观测时间：2026-11-20T00:00:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "c0efd4e3af94bd540d2a4a08a0cd5fcc024c7d4f0eae83030887ca53f2e46537",
+      "title": "Iceberg D32",
+      "titleOriginal": "Iceberg D32",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "occurredAt": "2026-11-20T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": -57.08,
+          "lon": -41.04,
+          "label": "Iceberg D32",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 -57.0800，经度 -41.0400）；类别：海冰／湖冰。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://usicecenter.gov/pub/Iceberg_Tabular.csv",
+          "publishedAt": "2026-11-20T00:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：海冰／湖冰；最新观测度量 54 NM^2。",
+        "最新观测时间：2026-11-20T00:00:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "d6e0042338fee99b2131712a4840d6ba4a9aac915bfcb53c1a181e4fcf269260",
+      "title": "Iceberg A84",
+      "titleOriginal": "Iceberg A84",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "occurredAt": "2026-11-20T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": -68.67,
+          "lon": -88.4,
+          "label": "Iceberg A84",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 -68.6700，经度 -88.4000）；类别：海冰／湖冰。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://usicecenter.gov/pub/Iceberg_Tabular.csv",
+          "publishedAt": "2026-11-20T00:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：海冰／湖冰；最新观测度量 72 NM^2。",
+        "最新观测时间：2026-11-20T00:00:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "dcec441564147502933e173ab35b2aee816b26eeeb7c86ac711556a881a3e2a1",
+      "title": "Iceberg A76C",
+      "titleOriginal": "Iceberg A76C",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "occurredAt": "2026-11-20T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": -57.66,
+          "lon": -23.48,
+          "label": "Iceberg A76C",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 -57.6600，经度 -23.4800）；类别：海冰／湖冰。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://usicecenter.gov/Products/AntarcIcebergs",
+          "publishedAt": "2026-11-20T00:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：海冰／湖冰；最新观测度量 112 NM^2。",
+        "最新观测时间：2026-11-20T00:00:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "f51dbd7b03d4f310bcd518cca64087e4c5081747f282c92829d273a7f51e250b",
+      "title": "Iceberg A81",
+      "titleOriginal": "Iceberg A81",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "occurredAt": "2026-11-20T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": -54.58,
+          "lon": -34.64,
+          "label": "Iceberg A81",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 -54.5800，经度 -34.6400）；类别：海冰／湖冰。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://usicecenter.gov/pub/Iceberg_Tabular.csv",
+          "publishedAt": "2026-11-20T00:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：海冰／湖冰；最新观测度量 700 NM^2。",
+        "最新观测时间：2026-11-20T00:00:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "d2bcc3b29646933d61e3499cf0bd3b73e50d10a11b9f9db6a09be74962ad3ca6",
+      "title": "M 5.3 - South Georgia Island region",
+      "titleOriginal": "M 5.3 - South Georgia Island region",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-19T20:07:49.383Z",
+      "occurredAt": "2026-11-19T20:07:49.383Z",
+      "locations": [
+        {
+          "lat": -55.0035,
+          "lon": -33.5069,
+          "label": "South Georgia Island region",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 -55.0035，经度 -33.5069）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000uc2q",
+          "publishedAt": "2026-11-19T20:07:49.383Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "55888167a44dc19dde749e6dee8aa06afdf9170db69556283b3c7716b84f934d",
+      "title": "Tropical Cyclone Akvan",
+      "titleOriginal": "Tropical Cyclone Akvan",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-19T18:00:00.000Z",
+      "occurredAt": "2026-11-19T18:00:00.000Z",
+      "locations": [
+        {
+          "lat": 17.2,
+          "lon": 84.7,
+          "label": "Tropical Cyclone Akvan",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 17.2000，经度 84.7000）；类别：强风暴。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://www.metoc.navy.mil/jtwc/products/io0526.tcw",
+          "publishedAt": "2026-11-19T18:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：强风暴；最新观测度量 30 kts。",
+        "最新观测时间：2026-11-19T18:00:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "895a5282a893645572035f6e7dce112650d973eb9683b3fc377ef82cb727c7e7",
+      "title": "美联储理事会新闻稿 · 2026-11-19",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-19T16:00:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 38.8921,
+          "lon": -77.0351,
+          "label": "华盛顿特区（美联储理事会）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "美联储理事会位于华盛顿特区；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "美联储理事会",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261119a.htm",
+          "publishedAt": "2026-11-19T16:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：美联储理事会；官方原文发布时间 2026-11-19T16:00:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "美联储理事会材料除特别标注外属公有领域；须注明理事会为来源，第三方材料与徽标除外。"
+      ],
+      "sourceId": "fed",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "c4dfe304fa21a47dcfebb30afd3a943d591d44e4ac068331b7c8ee082389770c",
+      "title": "M 5.2 - 130 km W of Teluk Dalam, Indonesia",
+      "titleOriginal": "M 5.2 - 130 km W of Teluk Dalam, Indonesia",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-19T01:34:48.394Z",
+      "occurredAt": "2026-11-19T01:34:48.394Z",
+      "locations": [
+        {
+          "lat": 0.5027,
+          "lon": 96.6318,
+          "label": "130 km W of Teluk Dalam, Indonesia",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 0.5027，经度 96.6318）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000ubxb",
+          "publishedAt": "2026-11-19T01:34:48.394Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "181fe820dc9c3a0c37e197b3960a14d9d51d3885f5c674f7b8526c3259e20782",
+      "title": "M 6.0 - Pacific-Antarctic Ridge",
+      "titleOriginal": "M 6.0 - Pacific-Antarctic Ridge",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-18T19:14:23.203Z",
+      "occurredAt": "2026-11-18T19:14:23.203Z",
+      "locations": [
+        {
+          "lat": -57.5192,
+          "lon": -146.8744,
+          "label": "Pacific-Antarctic Ridge",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 -57.5192，经度 -146.8744）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tz37",
+          "publishedAt": "2026-11-18T19:14:23.203Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "ad443474c566c1ec2e04e2a6de62dd309030814762b088d1d1e0b2d6f46dc76c",
+      "title": "美联储理事会新闻稿 · 2026-11-18",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-18T19:00:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 38.8921,
+          "lon": -77.0351,
+          "label": "华盛顿特区（美联储理事会）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "美联储理事会位于华盛顿特区；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "美联储理事会",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261118a.htm",
+          "publishedAt": "2026-11-18T19:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：美联储理事会；官方原文发布时间 2026-11-18T19:00:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "美联储理事会材料除特别标注外属公有领域；须注明理事会为来源，第三方材料与徽标除外。"
+      ],
+      "sourceId": "fed",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "45b20b4bb91b3698446178c816845cd9da535ea2dd4241c9e9079bcee3c299bc",
+      "title": "M 5.3 - 4 km N of Tsunagi, Japan",
+      "titleOriginal": "M 5.3 - 4 km N of Tsunagi, Japan",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-18T17:22:23.428Z",
+      "occurredAt": "2026-11-18T17:22:23.428Z",
+      "locations": [
+        {
+          "lat": 32.2798,
+          "lon": 130.4667,
+          "label": "4 km N of Tsunagi, Japan",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 32.2798，经度 130.4667）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tz1n",
+          "publishedAt": "2026-11-18T17:22:23.428Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "d2f738ffe0feb90a1b99c63698781ea66d16f3a9f852a76a008ba2c14eab8b22",
+      "title": "Wildfire Greene - Caney Creek Lane, Greene, Tennessee",
+      "titleOriginal": "Wildfire Greene - Caney Creek Lane, Greene, Tennessee",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-18T14:11:00.000Z",
+      "occurredAt": "2026-11-18T14:11:00.000Z",
+      "locations": [
+        {
+          "lat": 36.36301667,
+          "lon": -82.7985,
+          "label": "Wildfire Greene - Caney Creek Lane, Greene, Tennessee",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 36.3630，经度 -82.7985）；类别：野火。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://irwin.doi.gov/observer/incidents/2026-TNTNS-261114",
+          "publishedAt": "2026-11-18T14:11:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：野火；最新观测度量 500 acres。",
+        "最新观测时间：2026-11-18T14:11:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "e0868a491a4aecd80f0193ee7790c90154f1c663862c5f2c5008d07966988bac",
+      "title": "Prescribed Fire 2027 TXTMR HFR RX, Matagorda, Texas",
+      "titleOriginal": "Prescribed Fire 2027 TXTMR HFR RX, Matagorda, Texas",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-18T09:44:00.000Z",
+      "occurredAt": "2026-11-18T09:44:00.000Z",
+      "locations": [
+        {
+          "lat": 28.762433,
+          "lon": -95.80795,
+          "label": "Prescribed Fire 2027 TXTMR HFR RX, Matagorda, Texas",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 28.7624，经度 -95.8080）；类别：野火。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://irwin.doi.gov/observer/incidents/2026-TXHGR-000422",
+          "publishedAt": "2026-11-18T09:44:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：野火；最新观测度量 1016 acres。",
+        "最新观测时间：2026-11-18T09:44:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "9f90702bf1127a8bcb62d565e7ead492c14809120e69989dd0075f55b4c2166b",
+      "title": "欧洲央行新闻稿 · 2026-11-18",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-18T09:00:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 50.1109,
+          "lon": 8.6821,
+          "label": "法兰克福（欧洲央行）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "欧洲央行总部位于德国法兰克福；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "欧洲央行",
+          "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261118~86f1e8147e.en.pdf",
+          "publishedAt": "2026-11-18T09:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：欧洲央行；官方原文发布时间 2026-11-18T09:00:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "欧洲央行材料可能受付费/订阅或署名文章例外约束；本候选不构成付费内容或全文再分发授权。"
+      ],
+      "sourceId": "ecb",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "d5d388af8fa67981941314374cc337c37d0bcfa67069e16184a5a0f74b435718",
+      "title": "欧洲央行新闻稿 · 2026-11-18",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-18T09:00:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 50.1109,
+          "lon": 8.6821,
+          "label": "法兰克福（欧洲央行）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "欧洲央行总部位于德国法兰克福；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "欧洲央行",
+          "url": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr261118~83c5c60158.en.html",
+          "publishedAt": "2026-11-18T09:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：欧洲央行；官方原文发布时间 2026-11-18T09:00:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "欧洲央行材料可能受付费/订阅或署名文章例外约束；本候选不构成付费内容或全文再分发授权。"
+      ],
+      "sourceId": "ecb",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "afa00bcc6c4bff1ad8fc32d5250485eab86742aa1c82d4a75118fec88b787d8a",
+      "title": "Prescribed Fire rx-Lapham Good Oak 2026, Waukesha, Wisconsin",
+      "titleOriginal": "Prescribed Fire rx-Lapham Good Oak 2026, Waukesha, Wisconsin",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-18T08:47:00.000Z",
+      "occurredAt": "2026-11-18T08:47:00.000Z",
+      "locations": [
+        {
+          "lat": 43.0403647,
+          "lon": -88.3992015,
+          "label": "Prescribed Fire rx-Lapham Good Oak 2026, Waukesha, Wisconsin",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 43.0404，经度 -88.3992）；类别：野火。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://irwin.doi.gov/observer/incidents/2026-WIWIS-RX3524",
+          "publishedAt": "2026-11-18T08:47:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：野火；最新观测度量 638 acres。",
+        "最新观测时间：2026-11-18T08:47:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "b6a5a1429605286229be57cd3ba0108a33ea8664826dc75e7a9baa10ad2472e7",
+      "title": "M 5.8 - 99 km ESE of Madang, Papua New Guinea",
+      "titleOriginal": "M 5.8 - 99 km ESE of Madang, Papua New Guinea",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-18T03:42:34.269Z",
+      "occurredAt": "2026-11-18T03:42:34.269Z",
+      "locations": [
+        {
+          "lat": -5.7009,
+          "lon": 146.5479,
+          "label": "99 km ESE of Madang, Papua New Guinea",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 -5.7009，经度 146.5479）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tyx2",
+          "publishedAt": "2026-11-18T03:42:34.269Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "135a745266450589aca63c17f27060b9d7edd55a280a51f16f998fbc5f457b29",
+      "title": "M 5.8 - 150 km SW of Merizo Village, Guam",
+      "titleOriginal": "M 5.8 - 150 km SW of Merizo Village, Guam",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-18T02:22:56.671Z",
+      "occurredAt": "2026-11-18T02:22:56.671Z",
+      "locations": [
+        {
+          "lat": 12.1387,
+          "lon": 143.8866,
+          "label": "150 km SW of Merizo Village, Guam",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 12.1387，经度 143.8866）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tywi",
+          "publishedAt": "2026-11-18T02:22:56.671Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "a15a2e4b9c9d8c66261d727fa7a9f6d45d1dea943e31db809261d25644a767aa",
+      "title": "M 5.3 - 17 km ESE of Comandău, Romania",
+      "titleOriginal": "M 5.3 - 17 km ESE of Comandău, Romania",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-18T00:48:56.305Z",
+      "occurredAt": "2026-11-18T00:48:56.305Z",
+      "locations": [
+        {
+          "lat": 45.6816,
+          "lon": 26.4521,
+          "label": "17 km ESE of Comandău, Romania",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 45.6816，经度 26.4521）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tyw8",
+          "publishedAt": "2026-11-18T00:48:56.305Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "4eb65ad0f3cd892fefacba2c1b3d3810c01142b9bce185d427662c7e230d9997",
+      "title": "M 5.3 - 7 km SE of Karakenja, Tajikistan",
+      "titleOriginal": "M 5.3 - 7 km SE of Karakenja, Tajikistan",
+      "summary": "USGS 发布的地震事件结构化元数据；震级、地点与时间以官方事件页为准。",
+      "theme": "earth",
+      "kind": "地震",
+      "publishedAt": "2026-11-18T00:46:31.418Z",
+      "occurredAt": "2026-11-18T00:46:31.418Z",
+      "locations": [
+        {
+          "lat": 39.1912,
+          "lon": 71.5875,
+          "label": "7 km SE of Karakenja, Tajikistan",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "USGS 发布的结构化事件坐标（纬度 39.1912，经度 71.5875）；仅表示震中位置，不表示灾害严重程度或影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "USGS",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tyw6",
+          "publishedAt": "2026-11-18T00:46:31.418Z"
+        }
+      ],
+      "facts": [
+        "USGS 地震目录属美国政府公开数据；本公开候选只保留结构化事件元数据。",
+        "未据震级推断伤亡、破坏或灾害严重程度。",
+        "来源：USGS 地震监测；署名不代表 USGS 对本项目的背书。"
+      ],
+      "sourceId": "usgs",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "5aa47d761e38c183e2f25cfcc71ae20a50d7a8a7448b0176d7a70d1e91f2f068",
+      "title": "欧洲央行新闻稿 · 2026-11-17",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-17T18:30:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 50.1109,
+          "lon": 8.6821,
+          "label": "法兰克福（欧洲央行）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "欧洲央行总部位于德国法兰克福；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "欧洲央行",
+          "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261117~7f5d3b1a0e.en.pdf",
+          "publishedAt": "2026-11-17T18:30:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：欧洲央行；官方原文发布时间 2026-11-17T18:30:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "欧洲央行材料可能受付费/订阅或署名文章例外约束；本候选不构成付费内容或全文再分发授权。"
+      ],
+      "sourceId": "ecb",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "fa16c844ae054411685885d7cbe792afc0e0bed2c64d8c3c76f373519bf6c2af",
+      "title": "欧洲央行新闻稿 · 2026-11-16",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-16T13:00:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 50.1109,
+          "lon": 8.6821,
+          "label": "法兰克福（欧洲央行）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "欧洲央行总部位于德国法兰克福；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "欧洲央行",
+          "url": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in261116_1~11dd7f62af.en.html",
+          "publishedAt": "2026-11-16T13:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：欧洲央行；官方原文发布时间 2026-11-16T13:00:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "欧洲央行材料可能受付费/订阅或署名文章例外约束；本候选不构成付费内容或全文再分发授权。"
+      ],
+      "sourceId": "ecb",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "22e117c0758000aa6675c3aff5f26bd5d43fb81915842a815502bc4f60259cc7",
+      "title": "Prescribed Fire STEELY MILL RX, El Dorado, California",
+      "titleOriginal": "Prescribed Fire STEELY MILL RX, El Dorado, California",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-16T11:32:00.000Z",
+      "occurredAt": "2026-11-16T11:32:00.000Z",
+      "locations": [
+        {
+          "lat": 38.619383,
+          "lon": -120.50025,
+          "label": "Prescribed Fire STEELY MILL RX, El Dorado, California",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 38.6194，经度 -120.5002）；类别：野火。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://irwin.doi.gov/observer/incidents/2026-CAENF-035548",
+          "publishedAt": "2026-11-16T11:32:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：野火；最新观测度量 1406 acres。",
+        "最新观测时间：2026-11-16T11:32:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "4825c8efe0b03510978bffa99f64991992328e947ba14102d7ba6229874e2b36",
+      "title": "Prescribed Fire RX D7 Second Skinny Landings, Mineral, Montana",
+      "titleOriginal": "Prescribed Fire RX D7 Second Skinny Landings, Mineral, Montana",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-16T09:41:00.000Z",
+      "occurredAt": "2026-11-16T09:41:00.000Z",
+      "locations": [
+        {
+          "lat": 47.122717,
+          "lon": -114.752017,
+          "label": "Prescribed Fire RX D7 Second Skinny Landings, Mineral, Montana",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 47.1227，经度 -114.7520）；类别：野火。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://irwin.doi.gov/observer/incidents/2026-MTLNF-260581",
+          "publishedAt": "2026-11-16T09:41:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：野火；最新观测度量 542 acres。",
+        "最新观测时间：2026-11-16T09:41:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "407f9207ad4317e4bd6fee05579d954f672c3e37bf9da3962c06752d033b30fb",
+      "title": "Green notification for tropical cyclone XAVIER-26. Population affected by Category 1 (120 km/h) wind speeds or higher is 0 (0 in Tropical Storm).",
+      "titleOriginal": "Green notification for tropical cyclone XAVIER-26. Population affected by Category 1 (120 km/h) wind speeds or higher is 0 (0 in Tropical Storm).",
+      "summary": "From 15/11/2026 to 23/11/2026, a Tropical Depression (maximum wind speed of 241 km/h) XAVIER-26 was active in SEPacific. The cyclone affects these countries: Cook Islands (vulnerability Medium). Estimated population affected by category 1 (120 km/h) wind speeds or higher is 0 (0 in tropical storm).",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-11-15T08:51:43.000Z",
+      "occurredAt": "2026-11-15T06:00:00.000Z",
+      "locations": [
+        {
+          "lat": -11.8,
+          "lon": -168.8,
+          "label": "Cook Islands",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 -11.8000，经度 -168.8000）；事件类型：热带气旋，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1001350&eventtype=TC",
+          "publishedAt": "2026-11-15T08:51:43.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：热带气旋；警报级别：绿色提示；涉及区域：Cook Islands。",
+        "报告发布时间：2026-11-15T08:51:43.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "b4b989f8a08e6b73031b991f93beebdb46ae33a4c8c1429243999fbd1f9396fa",
+      "title": "美联储理事会新闻稿 · 2026-11-13",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-13T21:15:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 38.8921,
+          "lon": -77.0351,
+          "label": "华盛顿特区（美联储理事会）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "美联储理事会位于华盛顿特区；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "美联储理事会",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20261113a.htm",
+          "publishedAt": "2026-11-13T21:15:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：美联储理事会；官方原文发布时间 2026-11-13T21:15:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "美联储理事会材料除特别标注外属公有领域；须注明理事会为来源，第三方材料与徽标除外。"
+      ],
+      "sourceId": "fed",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "0b10df6a0e8a54d68aaba7203468e194fd169b9c6c149dd20e78ead20f9a3620",
+      "title": "美联储理事会新闻稿 · 2026-11-12",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-12T18:30:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 38.8921,
+          "lon": -77.0351,
+          "label": "华盛顿特区（美联储理事会）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "美联储理事会位于华盛顿特区；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "美联储理事会",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261112a.htm",
+          "publishedAt": "2026-11-12T18:30:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：美联储理事会；官方原文发布时间 2026-11-12T18:30:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "美联储理事会材料除特别标注外属公有领域；须注明理事会为来源，第三方材料与徽标除外。"
+      ],
+      "sourceId": "fed",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "e322e75c63b7d763e6fa36cdf2e2b490079e48f4d8c9a1b250bd4ac1fed56842",
+      "title": "美联储理事会新闻稿 · 2026-11-12",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-12T17:45:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 38.8921,
+          "lon": -77.0351,
+          "label": "华盛顿特区（美联储理事会）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "美联储理事会位于华盛顿特区；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "美联储理事会",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261112a.htm",
+          "publishedAt": "2026-11-12T17:45:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：美联储理事会；官方原文发布时间 2026-11-12T17:45:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "美联储理事会材料除特别标注外属公有领域；须注明理事会为来源，第三方材料与徽标除外。"
+      ],
+      "sourceId": "fed",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "9f9478426e61eb6860350bf32af109bde574bad8cd9232e6d8125cbcfd03bcaa",
+      "title": "美联储理事会新闻稿 · 2026-11-12",
+      "titleOriginal": "",
+      "summary": "本公开候选只提供发布机构、发布日期与官方原文链接，不转载原标题、摘要或正文。",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-12T16:00:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": 38.8921,
+          "lon": -77.0351,
+          "label": "华盛顿特区（美联储理事会）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "美联储理事会位于华盛顿特区；该坐标只表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "美联储理事会",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261112a.htm",
+          "publishedAt": "2026-11-12T16:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源：美联储理事会；官方原文发布时间 2026-11-12T16:00:00.000Z。",
+        "公开候选未复制标题、摘要、正文或据原文推导的事件详情；请以官方原文为准。",
+        "美联储理事会材料除特别标注外属公有领域；须注明理事会为来源，第三方材料与徽标除外。"
+      ],
+      "sourceId": "fed",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "5b4ef17b9dcade96600396b241e91df72c7b0604d562b3239e47360869f116d6",
+      "title": "Drought is on going in New Zealand",
+      "titleOriginal": "Drought is on going in New Zealand",
+      "summary": "The Drought notification level is Green.",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-11-12T08:29:44.000Z",
+      "occurredAt": "2026-07-21T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": -37.44,
+          "lon": 175.171,
+          "label": "New Zealand",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 -37.4400，经度 175.1710）；事件类型：干旱，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1027737&eventtype=DR",
+          "publishedAt": "2026-11-12T08:29:44.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：干旱；警报级别：绿色提示；涉及区域：New Zealand。",
+        "报告发布时间：2026-11-12T08:29:44.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "f219324bee8650afaf8fd5148c35cbf87b1fd4982908830498a968d109a3340a",
+      "title": "Green flood alert in France",
+      "titleOriginal": "Green flood alert in France",
+      "summary": "On 04/11/2026, a flood started in France, lasting until 16/11/2026 (last update). The flood caused 2 deaths and 170 displaced .",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-11-06T11:36:58.000Z",
+      "occurredAt": "2026-11-04T01:00:00.000Z",
+      "locations": [
+        {
+          "lat": 50.5100492,
+          "lon": 1.7291708,
+          "label": "France",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 50.5100，经度 1.7292）；事件类型：洪涝，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1104270&eventtype=FL",
+          "publishedAt": "2026-11-06T11:36:58.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：洪涝；警报级别：绿色提示；涉及区域：France。",
+        "报告发布时间：2026-11-06T11:36:58.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "4b6bfbaaecae6a0479c86b35fb747cab24da6d6fee2f6b0042a5955f626d4228",
+      "title": "Iceberg B22A",
+      "titleOriginal": "Iceberg B22A",
+      "summary": "",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-06T00:00:00.000Z",
+      "occurredAt": "2026-11-06T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": -69.59,
+          "lon": 163.59,
+          "label": "Iceberg B22A",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 -69.5900，经度 163.5900）；类别：海冰／湖冰。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://www.scp.byu.edu/data/iceberg/ascat/b22a.ascat",
+          "publishedAt": "2026-11-06T00:00:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：海冰／湖冰；最新观测度量 725 NM^2。",
+        "最新观测时间：2026-11-06T00:00:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "metadata"
+    },
+    {
+      "id": "4bf65074eec22ef064970906463e6b1f39ab455379ebe719a14e3de0dd8e715c",
+      "title": "Designation of Prosegur Australia Pty Ltd under the Cash Distribution Framework Act 2026",
+      "titleOriginal": "Designation of Prosegur Australia Pty Ltd under the Cash Distribution Framework Act 2026",
+      "summary": "Media release number 2026-31: The RBA has today designated Prosegur Australia Pty Ltd (Prosegur Australia) (ACN 004 247 358) under the Cash Distribution Framework Act 2026 (the Act).",
+      "theme": "economy",
+      "kind": "机构发布",
+      "publishedAt": "2026-11-05T23:45:00.000Z",
+      "occurredAt": null,
+      "locations": [
+        {
+          "lat": -33.8675,
+          "lon": 151.2111,
+          "label": "悉尼（澳大利亚储备银行）",
+          "relation": "publisher",
+          "precision": "city",
+          "evidence": "澳大利亚储备银行总部位于澳大利亚悉尼；该坐标表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "澳大利亚储备银行",
+          "url": "https://www.rba.gov.au/media-releases/2026/mr-26-31.html",
+          "publishedAt": "2026-11-05T23:45:00.000Z"
+        }
+      ],
+      "facts": [
+        "来源摘要：Media release number 2026-31: The RBA has today designated Prosegur Australia Pty Ltd (Prosegur Australia) (ACN 004 247 358) under the Cash Distribution Framework Act 2026 (the Act).",
+        "来源：澳大利亚储备银行，原文发布时间 2026-11-05T23:45:00.000Z。"
+      ],
+      "sourceId": "rba",
+      "summaryMode": "source"
+    },
+    {
+      "id": "9a86ecf10599f664c55693f7e1a2c8cdb6165a9c69f353ed4f01f658ecbc3183",
+      "title": "Wildfire FOOT CREEK, Johnson, Wyoming",
+      "titleOriginal": "Wildfire FOOT CREEK, Johnson, Wyoming",
+      "summary": "10 Miles W from Bufffalo, WY",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-05T16:11:00.000Z",
+      "occurredAt": "2026-11-05T16:11:00.000Z",
+      "locations": [
+        {
+          "lat": 44.318717,
+          "lon": -106.93255,
+          "label": "Wildfire FOOT CREEK, Johnson, Wyoming",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 44.3187，经度 -106.9326）；类别：野火。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://irwin.doi.gov/observer/incidents/2026-WYBHF-000401",
+          "publishedAt": "2026-11-05T16:11:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：野火；最新观测度量 683 acres。",
+        "最新观测时间：2026-11-05T16:11:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "source"
+    },
+    {
+      "id": "11fd16ca4cfb8a2169e9abe6cba6896e5e5e17e7055aac381fb6f87269ebc7ad",
+      "title": "Green flood alert in Democratic Republic of Congo",
+      "titleOriginal": "Green flood alert in Democratic Republic of Congo",
+      "summary": "On 01/11/2026, a flood started in Democratic Republic of Congo, lasting until 11/11/2026 (last update). The flood caused 4 deaths and 0 displaced .",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-11-05T10:23:17.000Z",
+      "occurredAt": "2026-11-01T01:00:00.000Z",
+      "locations": [
+        {
+          "lat": -4.4556553,
+          "lon": 15.2291133,
+          "label": "Democratic Republic of Congo",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 -4.4557，经度 15.2291）；事件类型：洪涝，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1104269&eventtype=FL",
+          "publishedAt": "2026-11-05T10:23:17.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：洪涝；警报级别：绿色提示；涉及区域：Democratic Republic of Congo。",
+        "报告发布时间：2026-11-05T10:23:17.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "3908659a7b2af84157bf0b2ffa9237330eceb4a7596ce293d3aeb6625e266a69",
+      "title": "Wildfire Wild River, Coos, New Hampshire",
+      "titleOriginal": "Wildfire Wild River, Coos, New Hampshire",
+      "summary": "5 Miles SW from Shelburne, NH",
+      "theme": "earth",
+      "kind": "自然事件",
+      "publishedAt": "2026-11-02T07:58:00.000Z",
+      "occurredAt": "2026-11-02T07:58:00.000Z",
+      "locations": [
+        {
+          "lat": 44.330583,
+          "lon": -71.031283,
+          "label": "Wildfire Wild River, Coos, New Hampshire",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "NASA EONET 结构化事件坐标（纬度 44.3306，经度 -71.0313）；类别：野火。坐标表示最新观测点，不用于判断灾害严重程度。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "NASA EONET",
+          "url": "https://irwin.doi.gov/observer/incidents/2026-NHWMF-000182",
+          "publishedAt": "2026-11-02T07:58:00.000Z"
+        }
+      ],
+      "facts": [
+        "NASA EONET 类别：野火；最新观测度量 982 acres。",
+        "最新观测时间：2026-11-02T07:58:00.000Z。",
+        "来源：NASA Earth Observatory Natural Event Tracker (EONET) 开放元数据；未推断伤亡、损失或灾害严重程度。"
+      ],
+      "sourceId": "eonet",
+      "summaryMode": "source"
+    },
+    {
+      "id": "7f0b417fc872dbb710ba8c969763b157e392c6a9b58c29c20c9180637d5df7b8",
+      "title": "Drought is on going in Bangladesh, Bhutan, China, India, Laos, Myanmar, Nepal, Vietnam",
+      "titleOriginal": "Drought is on going in Bangladesh, Bhutan, China, India, Laos, Myanmar, Nepal, Vietnam",
+      "summary": "The Drought notification level is Green.",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-10-28T18:05:01.000Z",
+      "occurredAt": "2026-05-21T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": 25.217,
+          "lon": 97.026,
+          "label": "Bangladesh, Bhutan, China, India, Laos, Myanmar, Nepal, Vietnam",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 25.2170，经度 97.0260）；事件类型：干旱，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1027462&eventtype=DR",
+          "publishedAt": "2026-10-28T18:05:01.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：干旱；警报级别：绿色提示；涉及区域：Bangladesh, Bhutan, China, India, Laos, Myanmar, Nepal, Vietnam。",
+        "报告发布时间：2026-10-28T18:05:01.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "0b0b01bab816e19201541b5d1cc2b060e809bd836b1611d3ec4019ca231e5352",
+      "title": "Green flood alert in Brazil",
+      "titleOriginal": "Green flood alert in Brazil",
+      "summary": "On 01/10/2026, a flood started in Brazil, lasting until 18/11/2026 (last update). The flood caused 6 deaths and 776 displaced .",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-10-09T06:06:33.000Z",
+      "occurredAt": "2026-10-01T01:00:00.000Z",
+      "locations": [
+        {
+          "lat": -20.4640173,
+          "lon": -54.6162947,
+          "label": "Brazil",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 -20.4640，经度 -54.6163）；事件类型：洪涝，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1104216&eventtype=FL",
+          "publishedAt": "2026-10-09T06:06:33.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：洪涝；警报级别：绿色提示；涉及区域：Brazil。",
+        "报告发布时间：2026-10-09T06:06:33.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "ec16463be65d1e272661595119ce56666b9421c051ccf244bb3ea52c91b41a25",
+      "title": "Gemma 官方发布 · 2026-10-06",
+      "titleOriginal": "Release of EmbeddingGemma 2.",
+      "summary": "Release of EmbeddingGemma 2.",
+      "theme": "ai",
+      "kind": "官方模型发布",
+      "publishedAt": "2026-10-06",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "Google Gemma · 发布记录",
+          "url": "https://gemma.ai/models/releases/#october-6-2026",
+          "publishedAt": "2026-10-06"
+        },
+        {
+          "name": "官方文档源码 · Apache-2.0",
+          "url": "https://github.com/google-gemma/docs/blob/main/docs/models/releases.md#october-6-2026",
+          "publishedAt": "2026-10-06"
+        }
+      ],
+      "facts": [
+        "Google Gemma 官方文档记载的发布信息：2026-10-06；时刻与时区未提供，不补写。",
+        "来源：Google DeepMind / google-gemma/docs（Apache-2.0）。环讯摘录发布条目并生成中文标题；完整许可证与修改说明随公开候选提供。",
+        "文档许可不等于模型权重许可；不代表 Google 或 DeepMind 背书。"
+      ],
+      "sourceId": "gemma",
+      "summaryMode": "source"
+    },
+    {
+      "id": "d8a094896a157306a7da2dce4cad6f9768ac3fbf770884e8706ecb69c40a0a6b",
+      "title": "Drought is on going in Brazil",
+      "titleOriginal": "Drought is on going in Brazil",
+      "summary": "The Drought notification level is Green.",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-09-21T14:58:16.000Z",
+      "occurredAt": "2022-09-21T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": -10.702,
+          "lon": -37.804,
+          "label": "Brazil",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 -10.7020，经度 -37.8040）；事件类型：干旱，警报级别：绿色提示。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1015915&eventtype=DR",
+          "publishedAt": "2026-09-21T14:58:16.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：干旱；警报级别：绿色提示；涉及区域：Brazil。",
+        "报告发布时间：2026-09-21T14:58:16.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "f3502fc9b41dadcf06b124ef40c9fb7feb8507ded3992fbd0964068f3fcf3695",
+      "title": "Drought is on going in Burundi, Democratic Republic of Congo, Central African Republic, Cameroon, Eritrea, Ethiopia, Kenya, Rwanda, Sudan, South Sudan, Chad, Tanzania, Uganda",
+      "titleOriginal": "Drought is on going in Burundi, Democratic Republic of Congo, Central African Republic, Cameroon, Eritrea, Ethiopia, Kenya, Rwanda, Sudan, South Sudan, Chad, Tanzania, Uganda",
+      "summary": "The Drought notification level is Orange.",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-07-03T12:57:44.000Z",
+      "occurredAt": "2026-05-21T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": 6.5,
+          "lon": 39.5,
+          "label": "Burundi, Democratic Republic of Congo, Central African Republic, Cameroon, Eritrea, Ethiopia, Kenya, Rwanda, Sudan, South Sudan, Chad, Tanzania, Uganda",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 6.5000，经度 39.5000）；事件类型：干旱，警报级别：橙色警报。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1027450&eventtype=DR",
+          "publishedAt": "2026-07-03T12:57:44.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：干旱；警报级别：橙色警报；涉及区域：Burundi, Democratic Republic of Congo, Central African Republic, Cameroon, Eritrea, Ethiopia, Kenya, Rwanda, Sudan, South Sudan, Chad, Tanzania, Uganda。",
+        "报告发布时间：2026-07-03T12:57:44.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "bcdca4a43720dc46d2cdba8c073ea535396401908be5cfc43b805cfbbc19e08b",
+      "title": "Drought is on going in Belize, Costa Rica, Cuba, Dominican Republic, Guatemala, Honduras, Mexico, Nicaragua, El Salvador, United States",
+      "titleOriginal": "Drought is on going in Belize, Costa Rica, Cuba, Dominican Republic, Guatemala, Honduras, Mexico, Nicaragua, El Salvador, United States",
+      "summary": "The Drought notification level is Orange.",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-07-03T12:57:40.000Z",
+      "occurredAt": "2026-04-21T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": 18.296,
+          "lon": -95.161,
+          "label": "Belize, Costa Rica, Cuba, Dominican Republic, Guatemala, Honduras, Mexico, Nicaragua, El Salvador, United States",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 18.2960，经度 -95.1610）；事件类型：干旱，警报级别：橙色警报。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1027449&eventtype=DR",
+          "publishedAt": "2026-07-03T12:57:40.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：干旱；警报级别：橙色警报；涉及区域：Belize, Costa Rica, Cuba, Dominican Republic, Guatemala, Honduras, Mexico, Nicaragua, El Salvador, United States。",
+        "报告发布时间：2026-07-03T12:57:40.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "e2d6659e5071a2b59d0ec609e3b0de391d24f7588252532104fee7a999f9f6bf",
+      "title": "Drought is on going in Aruba, , Brazil, Colombia, Costa Rica, , French Guiana, Guyana, Panama, Suriname, Venezuela",
+      "titleOriginal": "Drought is on going in Aruba, , Brazil, Colombia, Costa Rica, , French Guiana, Guyana, Panama, Suriname, Venezuela",
+      "summary": "The Drought notification level is Orange.",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-07-03T12:57:35.000Z",
+      "occurredAt": "2022-09-21T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": 7.036,
+          "lon": -66.243,
+          "label": "Aruba, , Brazil, Colombia, Costa Rica, , French Guiana, Guyana, Panama, Suriname, Venezuela",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 7.0360，经度 -66.2430）；事件类型：干旱，警报级别：橙色警报。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1023877&eventtype=DR",
+          "publishedAt": "2026-07-03T12:57:35.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：干旱；警报级别：橙色警报；涉及区域：Aruba, , Brazil, Colombia, Costa Rica, , French Guiana, Guyana, Panama, Suriname, Venezuela。",
+        "报告发布时间：2026-07-03T12:57:35.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "e840c96602b6f675d10ea4915c6949e27b1d1633b972cbc9cda638ab2151178d",
+      "title": "Gemma 官方发布 · 2026-06-03",
+      "titleOriginal": "Release of Gemma 4 12B Unified.",
+      "summary": "Release of Gemma 4 12B Unified.",
+      "theme": "ai",
+      "kind": "官方模型发布",
+      "publishedAt": "2026-06-03",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "Google Gemma · 发布记录",
+          "url": "https://gemma.ai/models/releases/#june-3-2026",
+          "publishedAt": "2026-06-03"
+        },
+        {
+          "name": "官方文档源码 · Apache-2.0",
+          "url": "https://github.com/google-gemma/docs/blob/main/docs/models/releases.md#june-3-2026",
+          "publishedAt": "2026-06-03"
+        }
+      ],
+      "facts": [
+        "Google Gemma 官方文档记载的发布信息：2026-06-03；时刻与时区未提供，不补写。",
+        "来源：Google DeepMind / google-gemma/docs（Apache-2.0）。环讯摘录发布条目并生成中文标题；完整许可证与修改说明随公开候选提供。",
+        "文档许可不等于模型权重许可；不代表 Google 或 DeepMind 背书。"
+      ],
+      "sourceId": "gemma",
+      "summaryMode": "source"
+    },
+    {
+      "id": "bb22fa2ef32cf997e30603b381d6439d12a9a2a813a53c4df5366d9bb0dd1651",
+      "title": "Gemma 官方发布 · 2026-03-31",
+      "titleOriginal": "Release of Gemma 4 in E2B, E4B, 31B and 26B A4B sizes.",
+      "summary": "Release of Gemma 4 in E2B, E4B, 31B and 26B A4B sizes.",
+      "theme": "ai",
+      "kind": "官方模型发布",
+      "publishedAt": "2026-03-31",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "Google Gemma · 发布记录",
+          "url": "https://gemma.ai/models/releases/#march-31-2026",
+          "publishedAt": "2026-03-31"
+        },
+        {
+          "name": "官方文档源码 · Apache-2.0",
+          "url": "https://github.com/google-gemma/docs/blob/main/docs/models/releases.md#march-31-2026",
+          "publishedAt": "2026-03-31"
+        }
+      ],
+      "facts": [
+        "Google Gemma 官方文档记载的发布信息：2026-03-31；时刻与时区未提供，不补写。",
+        "来源：Google DeepMind / google-gemma/docs（Apache-2.0）。环讯摘录发布条目并生成中文标题；完整许可证与修改说明随公开候选提供。",
+        "文档许可不等于模型权重许可；不代表 Google 或 DeepMind 背书。"
+      ],
+      "sourceId": "gemma",
+      "summaryMode": "source"
+    },
+    {
+      "id": "eb1132f9b5f5dc16bbdd4b36998b20faebfb7975ae922ccc4b53d9fa7c01aa95",
+      "title": "Drought is on going in Albania, Austria, Bosnia & Herzegovina, Belgium, Bulgaria, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Montenegro, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, Ukraine,",
+      "titleOriginal": "Drought is on going in Albania, Austria, Bosnia & Herzegovina, Belgium, Bulgaria, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Montenegro, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, Ukraine,",
+      "summary": "The Drought notification level is Orange.",
+      "theme": "earth",
+      "kind": "灾害警报",
+      "publishedAt": "2026-02-11T09:57:31.000Z",
+      "occurredAt": "2025-12-21T00:00:00.000Z",
+      "locations": [
+        {
+          "lat": 47.431,
+          "lon": 14.216,
+          "label": "Albania, Austria, Bosnia & Herzegovina, Belgium, Bulgaria, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Montenegro, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, Ukraine,",
+          "relation": "event",
+          "precision": "point",
+          "evidence": "GDACS 全球灾害警报坐标（纬度 47.4310，经度 14.2160）；事件类型：干旱，警报级别：橙色警报。警报由自动模型生成，仅供参考，不替代当地官方通知。"
+        }
+      ],
+      "sources": [
+        {
+          "name": "GDACS",
+          "url": "https://www.gdacs.org/report.aspx?eventid=1018332&eventtype=DR",
+          "publishedAt": "2026-02-11T09:57:31.000Z"
+        }
+      ],
+      "facts": [
+        "GDACS 事件类型：干旱；警报级别：橙色警报；涉及区域：Albania, Austria, Bosnia & Herzegovina, Belgium, Bulgaria, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Montenegro, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, Ukraine,。",
+        "报告发布时间：2026-02-11T09:57:31.000Z。",
+        "来源：Global Disaster Alert and Coordination System (GDACS)；自动模型警报仅供参考，不替代当地官方应急通知。"
+      ],
+      "sourceId": "gdacs",
+      "summaryMode": "source"
+    },
+    {
+      "id": "04f35ab568a7679c7b36c5e20d74340adad15572aca4a93280c4d8b639ce2793",
+      "title": "Gemma 官方发布 · 2026-01-15",
+      "titleOriginal": "Release of TranslateGemma in 4B, 12B, and 27B parameter size.",
+      "summary": "Release of TranslateGemma in 4B, 12B, and 27B parameter size.",
+      "theme": "ai",
+      "kind": "官方模型发布",
+      "publishedAt": "2026-01-15",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "Google Gemma · 发布记录",
+          "url": "https://gemma.ai/models/releases/#january-15-2026",
+          "publishedAt": "2026-01-15"
+        },
+        {
+          "name": "官方文档源码 · Apache-2.0",
+          "url": "https://github.com/google-gemma/docs/blob/main/docs/models/releases.md#january-15-2026",
+          "publishedAt": "2026-01-15"
+        }
+      ],
+      "facts": [
+        "Google Gemma 官方文档记载的发布信息：2026-01-15；时刻与时区未提供，不补写。",
+        "来源：Google DeepMind / google-gemma/docs（Apache-2.0）。环讯摘录发布条目并生成中文标题；完整许可证与修改说明随公开候选提供。",
+        "文档许可不等于模型权重许可；不代表 Google 或 DeepMind 背书。"
+      ],
+      "sourceId": "gemma",
+      "summaryMode": "source"
+    },
+    {
+      "id": "87e80b5eedab8d62d4476ec32bdef25b2b586415081a2c10b70459a70da96776",
+      "title": "Gemma 官方发布 · 2026-01-13",
+      "titleOriginal": "Release of MedGemma 1.5 in 4B parameter size.",
+      "summary": "Release of MedGemma 1.5 in 4B parameter size.",
+      "theme": "ai",
+      "kind": "官方模型发布",
+      "publishedAt": "2026-01-13",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "Google Gemma · 发布记录",
+          "url": "https://gemma.ai/models/releases/#january-13-2026",
+          "publishedAt": "2026-01-13"
+        },
+        {
+          "name": "官方文档源码 · Apache-2.0",
+          "url": "https://github.com/google-gemma/docs/blob/main/docs/models/releases.md#january-13-2026",
+          "publishedAt": "2026-01-13"
+        }
+      ],
+      "facts": [
+        "Google Gemma 官方文档记载的发布信息：2026-01-13；时刻与时区未提供，不补写。",
+        "来源：Google DeepMind / google-gemma/docs（Apache-2.0）。环讯摘录发布条目并生成中文标题；完整许可证与修改说明随公开候选提供。",
+        "文档许可不等于模型权重许可；不代表 Google 或 DeepMind 背书。"
+      ],
+      "sourceId": "gemma",
+      "summaryMode": "source"
+    },
+    {
+      "id": "30cb7d92ef208d94927d279d1fc217d26f8536fffe766f0384ae4a031f990f79",
+      "title": "Gemma 官方发布 · 2025-12-18",
+      "titleOriginal": "Release of FunctionGemma in 270M parameter size.",
+      "summary": "Release of FunctionGemma in 270M parameter size.",
+      "theme": "ai",
+      "kind": "官方模型发布",
+      "publishedAt": "2025-12-18",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "Google Gemma · 发布记录",
+          "url": "https://gemma.ai/models/releases/#december-18-2025",
+          "publishedAt": "2025-12-18"
+        },
+        {
+          "name": "官方文档源码 · Apache-2.0",
+          "url": "https://github.com/google-gemma/docs/blob/main/docs/models/releases.md#december-18-2025",
+          "publishedAt": "2025-12-18"
+        }
+      ],
+      "facts": [
+        "Google Gemma 官方文档记载的发布信息：2025-12-18；时刻与时区未提供，不补写。",
+        "来源：Google DeepMind / google-gemma/docs（Apache-2.0）。环讯摘录发布条目并生成中文标题；完整许可证与修改说明随公开候选提供。",
+        "文档许可不等于模型权重许可；不代表 Google 或 DeepMind 背书。"
+      ],
+      "sourceId": "gemma",
+      "summaryMode": "source"
+    },
+    {
+      "id": "61f62306c4f5bb612aa4ab39d5b8c50e6ad0ca933673665564948182eea3749c",
+      "title": "Gemma 官方发布 · 2025-12-18",
+      "titleOriginal": "Release of T5Gemma v2 in 270M-270M, 1B-1B, and 4B-4B parameter sizes.",
+      "summary": "Release of T5Gemma v2 in 270M-270M, 1B-1B, and 4B-4B parameter sizes.",
+      "theme": "ai",
+      "kind": "官方模型发布",
+      "publishedAt": "2025-12-18",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "Google Gemma · 发布记录",
+          "url": "https://gemma.ai/models/releases/#december-18-2025",
+          "publishedAt": "2025-12-18"
+        },
+        {
+          "name": "官方文档源码 · Apache-2.0",
+          "url": "https://github.com/google-gemma/docs/blob/main/docs/models/releases.md#december-18-2025",
+          "publishedAt": "2025-12-18"
+        }
+      ],
+      "facts": [
+        "Google Gemma 官方文档记载的发布信息：2025-12-18；时刻与时区未提供，不补写。",
+        "来源：Google DeepMind / google-gemma/docs（Apache-2.0）。环讯摘录发布条目并生成中文标题；完整许可证与修改说明随公开候选提供。",
+        "文档许可不等于模型权重许可；不代表 Google 或 DeepMind 背书。"
+      ],
+      "sourceId": "gemma",
+      "summaryMode": "source"
+    },
+    {
+      "id": "20309d16f86246901c5bdc6fab65ed9da31b6ebfa4fd99720422346e8c0580f3",
+      "title": "Gemma 官方发布 · 2025-09-13",
+      "titleOriginal": "Release of VaultGemma in 1B parameter size.",
+      "summary": "Release of VaultGemma in 1B parameter size.",
+      "theme": "ai",
+      "kind": "官方模型发布",
+      "publishedAt": "2025-09-13",
+      "occurredAt": null,
+      "locations": [],
+      "sources": [
+        {
+          "name": "Google Gemma · 发布记录",
+          "url": "https://gemma.ai/models/releases/#september-13-2025",
+          "publishedAt": "2025-09-13"
+        },
+        {
+          "name": "官方文档源码 · Apache-2.0",
+          "url": "https://github.com/google-gemma/docs/blob/main/docs/models/releases.md#september-13-2025",
+          "publishedAt": "2025-09-13"
+        }
+      ],
+      "facts": [
+        "Google Gemma 官方文档记载的发布信息：2025-09-13；时刻与时区未提供，不补写。",
+        "来源：Google DeepMind / google-gemma/docs（Apache-2.0）。环讯摘录发布条目并生成中文标题；完整许可证与修改说明随公开候选提供。",
+        "文档许可不等于模型权重许可；不代表 Google 或 DeepMind 背书。"
+      ],
+      "sourceId": "gemma",
+      "summaryMode": "source"
+    }
+  ]
+}

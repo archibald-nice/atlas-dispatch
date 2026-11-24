@@ -1,0 +1,136 @@
+[
+  {
+    "id": "usgs",
+    "name": "USGS 地震监测",
+    "shortName": "USGS",
+    "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson",
+    "policyUrl": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+    "rights": "USGS 地震目录属美国政府公开数据，可复制与再分发；本产品只展示结构化事件元数据并署名 USGS，不据震级推断伤亡、破坏或灾害严重程度。第三方内容除外。",
+    "theme": "earth",
+    "kind": "地震",
+    "maxEvents": 20,
+    "format": "geojson"
+  },
+  {
+    "id": "eonet",
+    "name": "NASA EONET 自然事件",
+    "shortName": "NASA EONET",
+    "url": "https://eonet.gsfc.nasa.gov/api/v3/events?status=open&days=30&limit=100",
+    "policyUrl": "https://eonet.gsfc.nasa.gov/docs/v3",
+    "rights": "NASA EONET 地球观测自然事件元数据属美国政府公开数据（CC0）；本产品只展示官方结构化事件元数据并署名 NASA EONET，不据事件类型推断伤亡、损失或灾害严重程度。第三方链接与图像适用各自条款。",
+    "theme": "earth",
+    "kind": "自然事件",
+    "maxEvents": 16,
+    "format": "eonet",
+    "accept": "application/json"
+  },
+  {
+    "id": "gdacs",
+    "name": "GDACS 全球灾害警报",
+    "shortName": "GDACS",
+    "url": "https://www.gdacs.org/xml/rss.xml",
+    "policyUrl": "https://www.gdacs.org/About/overview.aspx",
+    "rights": "GDACS 由联合国与欧盟联合运营，允许在署名 Global Disaster Alert and Coordination System (GDACS) 前提下用于公益与信息展示；警报多由自动模型生成，仅供参考，不替代当地官方应急通知。",
+    "theme": "earth",
+    "kind": "灾害警报",
+    "maxEvents": 18,
+    "format": "gdacs",
+    "accept": "application/rss+xml, application/xml;q=0.9, text/xml;q=0.8"
+  },
+  {
+    "id": "fed",
+    "name": "美联储理事会",
+    "shortName": "美联储",
+    "url": "https://www.federalreserve.gov/feeds/press_all.xml",
+    "policyUrl": "https://www.federalreserve.gov/disclaimer.htm",
+    "rights": "美联储理事会网站内容除特别标注外属公有领域，可复制与分发；本产品只使用新闻稿标题、短描述与链接并注明来源，不改写为美联储立场。第三方材料与引用除外。",
+    "theme": "economy",
+    "kind": "机构发布",
+    "maxEvents": 8,
+    "format": "feed",
+    "accept": "application/rss+xml, application/xml;q=0.9, text/xml;q=0.8",
+    "publisherLocation": {
+      "label": "华盛顿特区（美联储理事会）",
+      "lat": 38.8921,
+      "lon": -77.0351,
+      "evidence": "美联储理事会位于华盛顿特区；该坐标表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+    }
+  },
+  {
+    "id": "ecb",
+    "name": "欧洲央行",
+    "shortName": "欧洲央行",
+    "url": "https://www.ecb.europa.eu/rss/press.html",
+    "policyUrl": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html",
+    "rights": "欧洲央行允许在注明来源的前提下使用网站信息，修改须明确说明；本产品展示新闻稿标题、短描述与链接，中文编辑标题保留原文并标注编辑，不转载署名文章全文。统计与第三方材料适用各自政策。",
+    "theme": "economy",
+    "kind": "机构发布",
+    "maxEvents": 8,
+    "format": "feed",
+    "accept": "application/rss+xml, application/xml;q=0.9, text/xml;q=0.8",
+    "publisherLocation": {
+      "label": "法兰克福（欧洲央行）",
+      "lat": 50.1109,
+      "lon": 8.6821,
+      "evidence": "欧洲央行总部位于法兰克福；该坐标表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+    }
+  },
+  {
+    "id": "rba",
+    "name": "澳大利亚储备银行",
+    "shortName": "澳大利亚储备银行",
+    "url": "https://www.rba.gov.au/rss/rss-cb-media-releases.xml",
+    "policyUrl": "https://www.rba.gov.au/copyright/",
+    "rights": "澳大利亚储备银行新闻稿正文按 CC BY 4.0 国际许可协议提供，署名 Reserve Bank of Australia 即可共享与使用；徽标、钞票图像及第三方数据除外。",
+    "theme": "economy",
+    "kind": "机构发布",
+    "maxEvents": 6,
+    "format": "feed",
+    "accept": "application/rss+xml, application/rdf+xml;q=0.9, application/xml;q=0.8",
+    "publisherLocation": {
+      "label": "悉尼（澳大利亚储备银行）",
+      "lat": -33.8675,
+      "lon": 151.2111,
+      "evidence": "澳大利亚储备银行总部位于澳大利亚悉尼；该坐标表示发布机构所在地，并非事件发生地，也不表示政策影响范围。"
+    }
+  },
+  {
+    "id": "arxiv",
+    "name": "arXiv 研究元数据",
+    "shortName": "arXiv",
+    "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+OR+cat%3Acs.LG+OR+cat%3Acs.CL&sortBy=submittedDate&sortOrder=descending&max_results=10",
+    "policyUrl": "https://info.arxiv.org/help/api/tou.html",
+    "rights": "arXiv 明确允许检索、存储、转换与分享描述性元数据（CC0）；本产品仅展示标题、摘要元数据、作者与链接，不镜像 PDF 或源码。论文版权仍属作者，预印本未经同行评审。",
+    "theme": "ai",
+    "kind": "研究预印本",
+    "maxEvents": 8,
+    "format": "feed",
+    "accept": "application/atom+xml, application/xml;q=0.9, text/xml;q=0.8"
+  },
+  {
+    "id": "nasa",
+    "name": "NASA 官方内容",
+    "shortName": "NASA",
+    "url": "https://www.nasa.gov/news-release/feed/",
+    "policyUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "rights": "NASA 内容通常不受美国版权保护，使用需注明 NASA 且不得暗示 NASA 背书；本产品仅使用官方内容的标题、短描述与链接，不使用图像或全文。第三方材料与引用除外。",
+    "theme": "space",
+    "kind": "NASA 发布",
+    "maxEvents": 6,
+    "format": "feed",
+    "accept": "application/rss+xml, application/xml;q=0.9, text/xml;q=0.8"
+  },
+  {
+    "id": "gemma",
+    "name": "Google Gemma 官方发布记录",
+    "shortName": "Google Gemma",
+    "url": "https://raw.githubusercontent.com/google-gemma/docs/main/docs/models/releases.md",
+    "policyUrl": "https://github.com/google-gemma/docs/blob/main/LICENSE",
+    "rights": "Google DeepMind 官方 google-gemma/docs 文档源码以 Apache-2.0 授权。环讯提取发布条目、保留来源短描述并生成中文标题；完整许可证随离线页面提供。仅记录官方文档明确的模型发布，不下载模型、图片或全文；文档许可不等于各模型权重许可，亦不代表 Google 背书。",
+    "theme": "ai",
+    "kind": "官方模型发布",
+    "maxEvents": 8,
+    "format": "gemma-releases",
+    "accept": "text/plain"
+  }
+]

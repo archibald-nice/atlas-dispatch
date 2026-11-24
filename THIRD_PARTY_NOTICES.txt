@@ -1,0 +1,42 @@
+Third-party notices — global-news-map
+
+Runtime software
+- React / React DOM / Scheduler: MIT, Copyright (c) Meta Platforms, Inc. and affiliates.
+- Three.js: MIT, Copyright © 2010-2026 three.js authors.
+Full runtime dependency license texts are embedded in the built single-file HTML by scripts/build.mjs.
+
+Local acquisition tooling
+- fast-xml-parser: MIT; original license is retained in node_modules/fast-xml-parser/LICENSE.
+- esbuild: MIT; TypeScript: Apache-2.0. Tool dependencies are locked in package-lock.json and are not executed as remote services.
+
+Local development feedback
+- Agentation 3.1.2: PolyForm Shield License 1.0.0, Copyright (c) 2026 Benji Taylor.
+  The package license is retained in node_modules/agentation/LICENSE. Agentation is not bundled in the offline HTML.
+
+Map geometry
+Made with Natural Earth. 1:110m land vector data is in the public domain.
+https://www.naturalearthdata.com/about/terms-of-use/
+Source and derivation details: assets/land-provenance.json.
+The land particles are environmental texture, not news records or activity counts.
+Administrative outlines use Natural Earth 1:50m Admin 0 Countries (public domain).
+The pinned source, checksum and conversion method are in assets/country-boundaries.json.
+The dataset follows Natural Earth's de facto boundary policy; display is not a statement of sovereignty.
+https://www.naturalearthdata.com/about/disputed-boundaries-policy/
+
+Content
+Source attribution and usage conditions are available in the offline HTML's source information dialog.
+Local Atlas snapshots record per-source and per-record provenance. A free public review build applies a separate content filter; it is not a license for Atlas code or approval to publish the build.
+A source's logo, third-party photographs, website code, and full article text are not included.
+No affiliation or endorsement by source institutions is implied.
+
+Official model release metadata
+- Google DeepMind / google-gemma/docs, Apache License 2.0:
+  https://github.com/google-gemma/docs
+- Source: docs/models/releases.md, not the gemma.ai website's general content policy.
+- Atlas extracts dated release entries, keeps short source descriptions, and generates Chinese titles.
+  These are modified documentation-derived records, not model weights, images, or full documents.
+- The full original license is retained in assets/gemma-docs-license.json and available from
+  the offline HTML's source information dialog. No Google affiliation or endorsement is implied.
+
+Reference product
+RoamDial was studied to understand interaction and rendering principles. No RoamDial source code, shaders, land-dot data, typography files, images, or branding are incorporated in this application.

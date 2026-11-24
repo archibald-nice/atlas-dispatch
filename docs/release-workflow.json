@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Atlas 本地出包与回退",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "output": "docs/release-workflow.html",
+    "legend": {
+      "entries": {
+        "frontend": { "label": "浏览器" },
+        "backend": { "label": "本地命令" },
+        "database": { "label": "版本资料" },
+        "security": { "label": "启用门槛" },
+        "external": { "label": "管理者操作" }
+      }
+    },
+    "repository": {
+      "url": "https://atlas.invalid/global-news-map",
+      "revision": "dbcb8951e4e39240662e19b9a825b774655ab323",
+      "link_mode": "local-only"
+    }
+  },
+  "lanes": [
+    { "id": "local", "label": "本地出包" },
+    { "id": "decision", "label": "管理决定" }
+  ],
+  "mainPath": ["input", "prepare", "report", "review", "activate", "current"],
+  "nodes": [
+    { "id": "input", "lane": "local", "col": 0, "type": "external", "label": "选择数据", "sublabel": "现版快照或采集", "sources": [{"path":"scripts/release.mjs","line":143,"end_line":155}] },
+    { "id": "prepare", "lane": "local", "col": 1, "type": "backend", "label": "构建候选", "sublabel": "校验并打包", "sources": [{"path":"scripts/release.mjs","line":156,"end_line":169},{"path":"scripts/build.mjs","line":13,"end_line":33}] },
+    { "id": "report", "lane": "local", "col": 2, "type": "database", "label": "逐源报告", "sublabel": "增删、沿用、异常", "sources": [{"path":"scripts/release-report.mjs","line":80,"end_line":122}] },
+    { "id": "review", "lane": "local", "col": 3, "type": "external", "label": "预览与审阅", "sublabel": "有异常先核对", "sources": [{"path":"docs/OPERATIONS.md","line":21,"end_line":30}] },
+    { "id": "activate", "lane": "local", "col": 4, "type": "security", "label": "启用候选", "sublabel": "校验基准及指纹", "sources": [{"path":"scripts/release.mjs","line":188,"end_line":202}] },
+    { "id": "current", "lane": "local", "col": 5, "type": "frontend", "label": "打开当前版", "sublabel": "本地 HTML", "sources": [{"path":"scripts/release.mjs","line":172,"end_line":180},{"path":"src/main.tsx","line":7,"end_line":15}] },
+    { "id": "hold", "lane": "decision", "col": 2, "type": "security", "label": "维持已启用版", "sublabel": "候选不改当前版", "sources": [{"path":"scripts/release.mjs","line":106,"end_line":118},{"path":"scripts/release.mjs","line":195,"end_line":200}] },
+    { "id": "restore", "lane": "decision", "col": 5, "type": "backend", "label": "回退上个启用版", "sublabel": "不采集、不重建", "sources": [{"path":"scripts/release.mjs","line":205,"end_line":213}] }
+  ],
+  "edges": [
+    { "from": "input", "to": "prepare", "variant": "emphasis" },
+    { "from": "prepare", "to": "report", "variant": "emphasis" },
+    { "from": "report", "to": "review", "variant": "emphasis" },
+    { "from": "review", "to": "activate", "variant": "emphasis", "label": "核对通过" },
+    { "from": "activate", "to": "current", "variant": "emphasis" },
+    { "from": "prepare", "to": "hold", "variant": "dashed", "role": "error", "label": "构建失败" },
+    { "from": "review", "to": "hold", "variant": "dashed", "role": "branch", "label": "不确认" },
+    { "from": "current", "to": "restore", "variant": "dashed", "role": "branch", "label": "发现问题" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "可追溯", "items": ["每版保留 Git 提交、快照和文件指纹；启用只移动本地指针。"] },
+    { "dot": "amber", "title": "对外是另一条路径", "items": ["当前版可生成受限的免费审阅包；不等于授权、发布或付费发行。"] }
+  ]
+}
