@@ -31,6 +31,8 @@ jobs:
       - name: Refresh snapshot from public catalog (keep prior valid snapshot if all feeds fail)
         run: node scripts/refresh.mjs --catalog presets/public-demo.sources.json || true
       - run: npm run build
+      - name: Publish social preview cover image
+        run: cp docs/images/hero-globe.png dist/og-cover.png
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
