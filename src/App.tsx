@@ -37,6 +37,7 @@ declare const process: { env: { NODE_ENV: string } };
 const techTracks = ['releases', 'research', 'other'] as const;
 type TechTrack = typeof techTracks[number];
 type Period = 'day' | 'week' | 'all';
+type EventGroup = { kind: 'place'; ids: string[] } | { kind: 'unlocated' };
 
 function matchesScope(event: NewsEvent, board: Board, track: TechTrack): boolean {
   if (!matchesBoard(event, board)) return false;
@@ -187,7 +188,7 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
   const [sourceFilter, setSourceFilter] = useState<ReadonlySet<string>>(() => new Set<string>());
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [pinnedEvent, setPinnedEvent] = useState<NewsEvent | null>(null);
-  const [regionIds, setRegionIds] = useState<string[] | null>(null);
+  const [eventGroup, setEventGroup] = useState<EventGroup | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [sourcesOpen, setSourcesOpen] = useState(false);
   const [studioOpen, setStudioOpen] = useState(false);
@@ -207,6 +208,7 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
   const overlay = useRef<HTMLDivElement>(null);
   const scene = useRef<AtlasScene | null>(null);
   const fileInput = useRef<HTMLInputElement>(null);
+  const searchToggle = useRef<HTMLButtonElement>(null);
   const searchInput = useRef<HTMLInputElement>(null);
   const rangeSelect = useRef<HTMLSelectElement>(null);
   const localeRef = useRef(locale);
@@ -244,15 +246,13 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
     return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   }, [scopeEvents]);
   const areaPlaces = useMemo(() => areaScope ? indexRegionLocations(activeSnapshot.events, areaScope) : null, [areaScope, activeSnapshot.events]);
-  const candidates = useMemo(() => {
-    const end = Math.max(Date.parse(activeSnapshot.generatedAt), ...customState.events.map(e => Date.parse(e.publishedAt)).filter(Number.isFinite));
-    const start = activePeriod === 'all' ? -Infinity : end - (activePeriod === 'day' ? 1 : 7) * 86_400_000;
+  const editionEnd = useMemo(() => Math.max(Date.parse(activeSnapshot.generatedAt), ...customState.events.map(e => Date.parse(e.publishedAt)).filter(Number.isFinite)), [activeSnapshot.generatedAt, customState.events]);
+  const matchingEvents = useMemo(() => {
     const text = query.trim().toLocaleLowerCase();
     return scopeEvents.filter(event => {
       if (areaPlaces && !areaPlaces.has(event.id)) return false;
       if (tagFilter && !(event.tags ?? []).includes(tagFilter)) return false;
-      const published = Date.parse(event.publishedAt);
-      return published >= start && published <= end + 300_000 && (!text || [
+      return Date.parse(event.publishedAt) <= editionEnd + 300_000 && (!text || [
         event.title,
         event.titleOriginal,
         event.summary,
@@ -267,8 +267,12 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
         ...event.sources.map(s => providerLabel(s.name, 'zh-CN')),
         ...event.sources.map(s => providerLabel(s.name, 'en')),
       ].join(' ').toLocaleLowerCase().includes(text));
-    }).sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
-  }, [scopeEvents, areaPlaces, activeSnapshot.generatedAt, customState.events, activePeriod, query, tagFilter]);
+    });
+  }, [scopeEvents, areaPlaces, editionEnd, query, tagFilter]);
+  const candidates = useMemo(() => {
+    const start = activePeriod === 'all' ? -Infinity : editionEnd - (activePeriod === 'day' ? 1 : 7) * 86_400_000;
+    return matchingEvents.filter(event => Date.parse(event.publishedAt) >= start).sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+  }, [matchingEvents, editionEnd, activePeriod]);
   const filtered = useMemo(() => sourceFilter.size === 0 ? candidates : candidates.filter(event => sourceFilter.has(event.sourceId)), [candidates, sourceFilter]);
   const sceneEvents = useMemo(() => areaPlaces ? filtered.map(event => {
     const locations = areaPlaces.get(event.id)!;
@@ -280,7 +284,12 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
     candidates.forEach(event => counts.set(event.sourceId, (counts.get(event.sourceId) ?? 0) + 1));
     return activeSnapshot.sources.filter(source => boardSourceIds.has(source.id)).map(source => ({ source, count: counts.get(source.id) ?? 0 }));
   }, [activeSnapshot.sources, scopeEvents, candidates]);
-  const railEvents = useMemo(() => regionIds ? filtered.filter(event => regionIds.includes(event.id)) : filtered, [filtered, regionIds]);
+  const unlocatedEvents = useMemo(() => filtered.filter(event => event.locations.length === 0), [filtered]);
+  const railEvents = useMemo(() => {
+    if (eventGroup?.kind === 'unlocated') return unlocatedEvents;
+    if (eventGroup?.kind === 'place') return filtered.filter(event => eventGroup.ids.includes(event.id));
+    return filtered;
+  }, [filtered, eventGroup, unlocatedEvents]);
   const areaGroups = useMemo(() => {
     if (!areaPlaces) return null;
     const local: NewsEvent[] = [], associated: NewsEvent[] = [];
@@ -289,6 +298,8 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
     }
     return { local, associated };
   }, [areaPlaces, railEvents]);
+  const hasSourceHistory = activePeriod !== 'all' && sourceFilter.size > 0 && filtered.length === 0
+    && matchingEvents.some(event => sourceFilter.has(event.sourceId));
   const releaseEmpty = isReleaseTrack && candidates.length === 0 && !query.trim();
   const hasReleaseHistory = isReleaseTrack && scopeEvents.length > 0;
   const themeCounts = useMemo(() => {
@@ -298,8 +309,7 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
   }, [filtered]);
   const sourceOk = activeSnapshot.sources.filter(source => source.status === 'ok').length;
   const areaName = areaScope ? regionName(areaScope, locale) : null;
-  const railTitle = areaName ? t.regionBrowse.title(areaName) : regionIds ? t.rail.regionTitle : board === 'tech' ? t.rail.techTitle : t.rail.worldTitle;
-  const globalCount = filtered.filter(event => event.locations.length === 0).length;
+  const railTitle = areaName ? t.regionBrowse.title(areaName) : eventGroup?.kind === 'unlocated' ? t.footer.global : eventGroup ? t.rail.regionTitle : board === 'tech' ? t.rail.techTitle : t.rail.worldTitle;
   const placeCount = new Set(sceneEvents.flatMap(event => event.locations.map(g => `${g.label}:${g.relation}`))).size;
   const snapshotDay = formatEditionDay(activeSnapshot.generatedAt, locale);
   const hero = t.chrome.hero[board];
@@ -316,7 +326,7 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
       scene.current = new AtlasScene({ canvas: canvas.current, overlay: overlay.current,
         onReady: () => setSceneReady(true), onError: message => setSceneError(message),
         onPick: (id, groupIds) => {
-          if (groupIds.length > 1) { setRegionIds(groupIds); openRail(); }
+          if (groupIds.length > 1) { setEventGroup({ kind: 'place', ids: groupIds }); openRail(); }
           else { setSelectedId(id); setPinnedEvent(null); }
         },
       });
@@ -348,8 +358,13 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
     return () => media.removeEventListener('change', change);
   }, []);
   useEffect(() => { if (searchOpen) searchInput.current?.focus(); }, [searchOpen]);
-  const escapeStateRef = useRef({ searchOpen: false, selectedId: null as string | null, regionIds: null as string[] | null, areaScope: null as AnchorRegion | null, tagFilter: null as string | null, query: '', sourceFilterSize: 0, railOpen: true });
-  escapeStateRef.current = { searchOpen, selectedId, regionIds, areaScope, tagFilter, query, sourceFilterSize: sourceFilter.size, railOpen };
+  const closeSearch = useCallback(() => {
+    setSearchOpen(false);
+    setQuery('');
+    searchToggle.current?.focus({ preventScroll: true });
+  }, []);
+  const escapeStateRef = useRef({ searchOpen, selectedId, eventGroup, areaScope, tagFilter, sourceFilterSize: sourceFilter.size, railOpen });
+  escapeStateRef.current = { searchOpen, selectedId, eventGroup, areaScope, tagFilter, sourceFilterSize: sourceFilter.size, railOpen };
   useEffect(() => {
     const key = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement;
@@ -357,19 +372,17 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
       if (event.key === 'Escape') {
         const s = escapeStateRef.current;
         if (s.searchOpen) {
-          setSearchOpen(false);
+          closeSearch();
         } else if (s.selectedId !== null) {
           setSelectedId(null);
           setPinnedEvent(null);
-        } else if (s.regionIds !== null) {
-          setRegionIds(null);
+        } else if (s.eventGroup !== null) {
+          setEventGroup(null);
           if (!railDefaultOpen()) setRailOpen(false);
         } else if (s.areaScope !== null) {
           setAreaScope(null);
         } else if (s.tagFilter !== null) {
           setTagFilter(null);
-        } else if (s.query.length > 0) {
-          setQuery('');
         } else if (s.sourceFilterSize > 0) {
           setSourceFilter(new Set<string>());
         } else if (!railDefaultOpen() && s.railOpen) {
@@ -379,33 +392,32 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
     };
     window.addEventListener('keydown', key);
     return () => window.removeEventListener('keydown', key);
-  }, []);
+  }, [closeSearch]);
 
   const selectEvent = useCallback((id: string) => {
     setSelectedId(id); setPinnedEvent(null);
     scene.current?.focusEvent(id);
   }, []);
-  const toggleSource = useCallback((id: string) => {
-    setSourceFilter(current => {
-      const next = new Set(current);
-      if (next.has(id)) next.delete(id); else next.add(id);
-      return next;
-    });
-    setRegionIds(null);
-  }, []);
+  const toggleSource = (id: string) => {
+    const next = new Set(sourceFilter);
+    if (next.has(id)) next.delete(id); else next.add(id);
+    setSourceFilter(next);
+    setEventGroup(null);
+    if (next.size > 0 && !candidates.some(event => next.has(event.sourceId))) openRail();
+  };
   const resetSources = useCallback(() => {
     if (sourceFilter.size === 0) return;
     setSourceFilter(new Set<string>());
-    setRegionIds(null);
+    setEventGroup(null);
   }, [sourceFilter.size]);
   const reset = () => {
-    setSelectedId(null); setPinnedEvent(null); setRegionIds(null); setRailOpen(railDefaultOpen());
+    setSelectedId(null); setPinnedEvent(null); setEventGroup(null); setRailOpen(railDefaultOpen());
     setAreaScope(null);
     setLayout('globe'); scene.current?.resetView();
   };
   const changeScope = (next: Board, track = techTrack) => {
     const applicable = new Set(activeSnapshot.events.filter(event => matchesScope(event, next, track)).map(event => event.sourceId));
-    setBoard(next); setTechTrack(track); setRegionIds(null);
+    setBoard(next); setTechTrack(track); setEventGroup(null);
     setTagFilter(null);
     if (next === 'tech' && board !== 'tech') openRail();
     setSourceFilter(current => {
@@ -446,7 +458,7 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
   const changePeriod = (next: Period) => {
     if (isReleaseTrack) setReleasePeriod(next);
     else setPeriod(next);
-    setRegionIds(null);
+    setEventGroup(null);
   };
   const changeAnchor = (region: AnchorRegion | null) => {
     setAnchoredRegion(region);
@@ -454,12 +466,12 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
   };
   const browseArea = (region: AnchorRegion) => {
     setAreaScope(region);
-    setRegionIds(null);
+    setEventGroup(null);
     openRail();
   };
   const exitArea = () => {
     setAreaScope(null);
-    setRegionIds(null);
+    setEventGroup(null);
   };
   const renderRow = (event: NewsEvent) => <EventRow key={event.id} event={event} active={selectedId === event.id} retained={sourceMap.get(event.sourceId)?.status === 'error'} locale={locale} places={areaPlaces?.get(event.id)} onClick={() => selectEvent(event.id)} />;
   const nextLocale: Locale = locale === 'zh-CN' ? 'en' : 'zh-CN';
@@ -471,7 +483,7 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
     if (file.size > 8_000_000) { setNotice(t.notice.tooLarge); return; }
     try {
       const next = validateSnapshot(JSON.parse(await file.text()));
-      setPinnedEvent(selectedRef.current); setSnapshot(next); setRegionIds(null); setSourceFilter(new Set<string>());
+      setPinnedEvent(selectedRef.current); setSnapshot(next); setEventGroup(null); setSourceFilter(new Set<string>());
       setNotice(t.notice.imported(next.events.length));
     } catch (error) {
       const detail = error instanceof Error ? error.message : '';
@@ -489,7 +501,7 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
         <RegionAnchor locale={locale} selected={anchoredRegion} scope={areaScope} onSelect={changeAnchor} onBrowse={browseArea} onExit={exitArea} />
         <nav className="board-nav" aria-label={t.chrome.boardNav}>{(['all', 'finance', 'tech'] as const).map(id => <button type="button" key={id} className={board === id ? 'active' : ''} aria-pressed={board === id} data-tooltip={t.chrome.boardTips[id]} onClick={() => changeScope(id)}>{t.chrome.boards[id]}</button>)}</nav>
       </div>
-      <div className="topbar-tools"><span className="snapshot-badge"><i />{t.chrome.snapshotBadge}</span><button type="button" className="icon-button add-source-trigger" aria-label={t.chrome.addSource} data-tooltip={t.chrome.addSourceTip} onClick={() => setStudioOpen(true)}><Icon name="plus" /></button><button type="button" className="icon-button" aria-label={t.chrome.search} data-tooltip={t.chrome.searchTip} onClick={() => setSearchOpen(value => !value)}><Icon name="search" /></button><button type="button" className="icon-button" aria-label={t.chrome.sources} data-tooltip={t.chrome.sources} onClick={() => setSourcesOpen(true)}><Icon name="layers" /></button><button type="button" className="icon-button help-trigger" aria-label={t.chrome.help} data-tooltip={t.chrome.help} onClick={() => setHelpOpen(true)}><Icon name="info" /></button><button type="button" className="icon-button locale-button" aria-label={t.locale.switchLabel} data-tooltip={t.locale.switchLabel} onClick={() => setLocale(nextLocale)}><span lang={locale === 'zh-CN' ? 'en' : 'zh-CN'}>{t.locale.switchText}</span></button></div>
+      <div className="topbar-tools"><span className="snapshot-badge"><i />{t.chrome.snapshotBadge}</span><button type="button" className="icon-button add-source-trigger" aria-label={t.chrome.addSource} data-tooltip={t.chrome.addSourceTip} onClick={() => setStudioOpen(true)}><Icon name="plus" /></button><button ref={searchToggle} type="button" className="icon-button" aria-label={t.chrome.search} aria-expanded={searchOpen} data-tooltip={t.chrome.searchTip} onClick={() => searchOpen ? closeSearch() : setSearchOpen(true)}><Icon name="search" /></button><button type="button" className="icon-button" aria-label={t.chrome.sources} data-tooltip={t.chrome.sources} onClick={() => setSourcesOpen(true)}><Icon name="layers" /></button><button type="button" className="icon-button help-trigger" aria-label={t.chrome.help} data-tooltip={t.chrome.help} onClick={() => setHelpOpen(true)}><Icon name="info" /></button><button type="button" className="icon-button locale-button" aria-label={t.locale.switchLabel} data-tooltip={t.locale.switchLabel} onClick={() => setLocale(nextLocale)}><span lang={locale === 'zh-CN' ? 'en' : 'zh-CN'}>{t.locale.switchText}</span></button></div>
     </header>
 
     <div className="edition"><span>{t.chrome.edition}</span><time dateTime={activeSnapshot.generatedAt}>{snapshotDay.toUpperCase()} <i>/</i> UTC</time></div>
@@ -526,13 +538,17 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
             ))}
           </div>}
           {areaScope && <button type="button" className="return-link area-exit" onClick={() => { exitArea(); rangeSelect.current?.focus({ preventScroll: true }); }}><Icon name="close" size={14} />{t.regionBrowse.exit}</button>}
-          {regionIds && <button type="button" className="return-link" data-tooltip={areaScope ? undefined : t.rail.backTip} onClick={() => { setRegionIds(null); if (!areaScope) scene.current?.resetView(); }}><Icon name="back" size={14} />{areaScope ? t.regionBrowse.back : t.rail.back}</button>}
+          {eventGroup && <button type="button" className="return-link" data-tooltip={eventGroup.kind === 'place' && !areaScope ? t.rail.backTip : undefined} onClick={() => { setEventGroup(null); if (eventGroup.kind === 'place' && !areaScope) scene.current?.resetView(); }}><Icon name="back" size={14} />{areaScope ? t.regionBrowse.back : t.rail.back}</button>}
           <div className="dispatch-list" key={`${board === 'tech' ? techTrack : 'general'}:${areaScope?.id ?? ''}`}>
             {areaGroups ? <>
               {areaGroups.local.length > 0 && <section className="region-result-group"><h3>{t.regionBrowse.events}</h3>{areaGroups.local.map(renderRow)}</section>}
               {areaGroups.associated.length > 0 && <section className="region-result-group"><h3>{t.regionBrowse.associations}</h3>{areaGroups.associated.map(renderRow)}</section>}
             </> : railEvents.map(renderRow)}
-            {areaName && railEvents.length === 0 ? <div className="empty-state"><h3>{t.regionBrowse.empty(areaName)}</h3><p>{t.regionBrowse.emptyHint}</p></div>
+            {hasSourceHistory ? <div className="empty-state release-empty">
+              <h3>{t.rail.sourceEmptyPeriod}</h3>
+              <p>{t.rail.sourceHistoryHint}</p>
+              <button type="button" onClick={() => { changePeriod('all'); rangeSelect.current?.focus({ preventScroll: true }); }}>{t.rail.sourceHistoryAction}<Icon name="arrow" size={14} /></button>
+            </div> : areaName && railEvents.length === 0 ? <div className="empty-state"><h3>{t.regionBrowse.empty(areaName)}</h3><p>{t.regionBrowse.emptyHint}</p></div>
             : !areaScope && releaseEmpty ? <div className="empty-state release-empty">
               <h3>{hasReleaseHistory && activePeriod !== 'all' ? t.rail.releaseEmptyPeriod : t.rail.releaseEmptyEdition}</h3>
               <p>{t.rail.releaseEmptyHint}</p>
@@ -551,12 +567,17 @@ export function App({ initialSnapshot }: { initialSnapshot: Snapshot }) {
       <nav className="layout-toggle" aria-label={t.layout.aria}><button type="button" onClick={() => setLayout('globe')} className={layout === 'globe' ? 'active' : ''} aria-pressed={layout === 'globe'} data-tooltip={t.layout.globeTip}><Icon name="globe" size={16} />{t.layout.globe}</button><button type="button" onClick={() => setLayout('themes')} className={layout === 'themes' ? 'active' : ''} aria-pressed={layout === 'themes'} data-tooltip={t.layout.themesTip}><Icon name="clusters" size={16} />{t.layout.themes}</button></nav>
       <div className="scene-tools"><button type="button" className="subtle-button" onClick={() => setQuality(value => value === 'full' ? 'light' : 'full')} aria-pressed={quality === 'light'} data-tooltip={quality === 'full' ? t.scene.qualityTipFull : t.scene.qualityTipLight}>{quality === 'full' ? t.scene.qualityFull : t.scene.qualityLight}</button><button type="button" className="icon-button" aria-label={reducedMotion ? t.scene.enableMotion : t.scene.reduceMotion} aria-pressed={reducedMotion} data-tooltip={reducedMotion ? t.scene.enableMotionTip : t.scene.reduceMotionTip} onClick={() => setReducedMotion(value => !value)}><Icon name="motion" size={17} /></button><button type="button" className="icon-button" aria-label={t.scene.reset} data-tooltip={t.scene.resetTip} onClick={reset}><Icon name="back" size={17} /></button></div>
     </div>
-    <footer className="footnote"><span>● {t.footer.eventPlace} <i>◇ {t.footer.subjectLink}</i> <i>◌ {t.footer.global} {globalCount}</i></span><span className="texture-note">{t.footer.texture}</span><button type="button" data-tooltip={t.footer.sourcesTip} onClick={() => setSourcesOpen(true)}>{t.footer.snapshot} {formatLocaleDate(activeSnapshot.generatedAt, locale, true)} UTC <span>↗</span></button></footer>
+    <footer className="footnote">
+      <span>● {t.footer.eventPlace} <i>◇ {t.footer.subjectLink}</i>{layout === 'globe' && unlocatedEvents.length > 0
+        ? <button type="button" className="unlocated-entry" aria-controls="dispatch-rail" data-tooltip={t.footer.unlocatedTip} onClick={() => { setEventGroup({ kind: 'unlocated' }); openRail(); }}>◌ {t.footer.global} {unlocatedEvents.length}</button>
+        : <i>◌ {t.footer.global} {unlocatedEvents.length}</i>}</span>
+      <span className="texture-note">{t.footer.texture}</span><button type="button" data-tooltip={t.footer.sourcesTip} onClick={() => setSourcesOpen(true)}>{t.footer.snapshot} {formatLocaleDate(activeSnapshot.generatedAt, locale, true)} UTC <span>↗</span></button>
+    </footer>
     <div className="gesture-hint"><span>{t.gesture.drag}</span><i />{t.gesture.zoom}<i />{t.gesture.click}</div>
     {!sceneReady && !sceneError && <div className="scene-loading" role="status"><span className="loading-orbit" />{t.scene.loading}</div>}
     {sceneError && <div className="gpu-notice" role="alert"><strong>{t.scene.errorTitle}</strong><span>{sceneError} {t.scene.errorSuffix}</span></div>}
 
-    {searchOpen && <section className="search-panel" role="search" aria-label={t.search.aria}><Icon name="search" /><input ref={searchInput} aria-label={t.search.inputAria} placeholder={t.search.placeholder} value={query} onChange={e => { setQuery(e.target.value); setRegionIds(null); openRail(); }} /><kbd>/</kbd><button type="button" className="icon-button" aria-label={t.search.close} data-tooltip={t.search.closeTip} onClick={() => setSearchOpen(false)}><Icon name="close" /></button>{(query || regionIds) && <button type="button" className="clear-filter" data-tooltip={t.search.clearTip} onClick={() => { setQuery(''); setRegionIds(null); }}>{t.search.clear}</button>}</section>}
+    {searchOpen && <section className="search-panel" role="search" aria-label={t.search.aria}><Icon name="search" /><input ref={searchInput} aria-label={t.search.inputAria} placeholder={t.search.placeholder} value={query} onChange={e => { setQuery(e.target.value); setEventGroup(null); openRail(); }} /><kbd>/</kbd><button type="button" className="icon-button" aria-label={t.search.close} data-tooltip={t.search.closeTip} onClick={closeSearch}><Icon name="close" /></button>{(query || eventGroup) && <button type="button" className="clear-filter" data-tooltip={t.search.clearTip} onClick={() => { setQuery(''); setEventGroup(null); }}>{t.search.clear}</button>}</section>}
 
     {sourcesOpen && <Modal title={t.sources.title} locale={locale} onClose={() => setSourcesOpen(false)}>
       <p className="modal-lede">{t.sources.lede}</p>

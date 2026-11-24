@@ -38,6 +38,7 @@
 - **Globe First, Reader Second** — Interactive **WebGL2** particle Earth backed by **242 Natural Earth country & territory outlines**, delta-varint packed for minimal payload (~1.9 MiB total single-file bundle).
 - **Geographic View ↔ Thematic Space** — Smooth 3D particle morph between Earth coordinates and editorial topic clusters (`Earth & Climate`, `Economy & Policy`, `AI & Models`, `Space & Exploration`).
 - **Locked Context Reading** — Filtering, switching boards, or dragging the globe never dismisses an open dispatch. Every card cites its primary source URL, coordinate precision, and location evidence.
+- **Search and Source History** — Closing search clears its keyword without dropping other filters. If a selected source has only older matches, choose **View history for selected sources** to expand the time range. Use **Global / unlocated** in the geographic view to browse stories with no reliable coordinates.
 - **Zero-Install Offline Build** — `npm run build` compiles React 19, Three.js, GLSL shaders, Natural Earth outlines, and your verified snapshot into a single self-contained `dist/index.html`. Double-click from disk; zero server or tracking.
 - **Bilingual Auto-Detection** — Automatically opens in **English** or **Chinese (简体中文)** based on browser locale, with instant top-bar switching and keyboard shortcuts (`/`, `Esc`, `Tab`).
 

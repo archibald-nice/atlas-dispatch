@@ -179,11 +179,11 @@ void main() {
   vec3 sphereNormal = normalize(worldPosition.xyz - modelMatrix[3].xyz);
   float facing = dot(sphereNormal, viewDirection);
   float placeBackside = mix(smoothstep(-0.03, 0.12, facing), 1.0, smoothstep(0.25, 0.62, uProgress));
-  float backside = mix(1.0, placeBackside, aCull);
+  float presence = mix(smoothstep(0.25, 0.68, uProgress), placeBackside, aCull);
 
   float size = aSize * (uCameraDistance / max(0.6, -mvPosition.z)) * uPixelRatio;
   gl_PointSize = clamp(size, 2.0, 13.0 * uPixelRatio);
-  vAlpha = backside * uIntro;
+  vAlpha = presence * uIntro;
   vColor = aColor;
   gl_Position = projectionMatrix * mvPosition;
 }

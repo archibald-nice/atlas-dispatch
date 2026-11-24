@@ -212,6 +212,8 @@ button{transition:color .2s,background .2s,border-color .2s}
 .footnote i{font-style:normal;margin-left:12px}
 .footnote button{font:8px var(--mono);color:var(--muted);padding:4px 0;white-space:nowrap}
 .footnote button>span{margin-left:6px;color:var(--amber)}
+.footnote .unlocated-entry{min-height:24px;margin-left:12px;padding:2px 7px;border:1px solid var(--line);border-radius:12px;color:var(--board-accent);font-family:inherit;font-size:10px}
+.footnote .unlocated-entry:hover,.footnote .unlocated-entry:focus-visible{border-color:var(--board-accent);color:var(--ink)}
 .texture-note{font-size:8px}
 .gesture-hint{position:absolute;z-index:3;bottom:129px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;font-size:8px;letter-spacing:.04em;color:var(--faint);white-space:nowrap;pointer-events:none}
 .gesture-hint i{width:2px;height:2px;border-radius:50%;background:var(--faint)}
@@ -369,6 +371,7 @@ kbd{font:10px var(--mono);padding:3px 6px;border:1px solid var(--line);border-ra
 .footnote>span:first-child{width:100%}
 .footnote i{margin-left:9px}
 .footnote button{font-size:7px;margin-left:auto}
+.footnote .unlocated-entry{margin-left:9px;font-size:9px}
 .texture-note{font-size:7px}
 .gesture-hint{bottom:127px;font-size:7px;gap:8px}
 .reader{top:176px;left:14px;right:14px;bottom:151px;width:auto;border-radius:14px}

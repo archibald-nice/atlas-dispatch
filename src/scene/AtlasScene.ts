@@ -266,7 +266,7 @@ export class AtlasScene {
   private readonly focusEuler = new Euler(0, 0, 0, 'YXZ');
   private readonly focusScratch = new Vector3();
   private focusRecord: MarkerRecord | null = null;
-  private detachedFraming: { lookX: number; lookY: number; distanceScale: number } | null = null;
+  private detachedDistanceScale: number | null = null;
   private pendingFocusId: string | null = null;
   private themeTiltX = 0;
   private themeTiltY = 0;
@@ -365,13 +365,8 @@ export class AtlasScene {
 
     if (this.layoutTarget === 'globe' && this.focusRecord) {
       if (this.dragDistance <= 6) return;
-      const distance = this.cameraDistance;
-      // Keep the view at the handoff pose instead of chasing a marker as it rotates.
-      this.detachedFraming = {
-        lookX: this.cameraLookX / distance,
-        lookY: this.cameraLookY / distance,
-        distanceScale: distance * FOCUS_DISTANCE_SCALE / this.desiredCameraDistance(),
-      };
+      // Preserve the current zoom when the user takes over from reading focus.
+      this.detachedDistanceScale = this.cameraDistance / this.layoutCameraDistance();
       this.focusRecord = null;
       this.pendingFocusId = null;
     }
@@ -618,7 +613,7 @@ export class AtlasScene {
 
     const layoutChanged = state.layout !== this.layoutTarget;
     if (layoutChanged) {
-      this.detachedFraming = null;
+      this.detachedDistanceScale = null;
       this.velocityX = 0;
       this.velocityY = 0;
       const previousLayout = this.layoutTarget;
@@ -681,7 +676,7 @@ export class AtlasScene {
   resetView(): void {
     if (this.disposed || this.failed) return;
     this.focusRecord = null;
-    this.detachedFraming = null;
+    this.detachedDistanceScale = null;
     this.pendingFocusId = null;
     this.zoomTarget = 1;
     this.velocityX = 0;
@@ -805,7 +800,7 @@ export class AtlasScene {
     const record = this.markerForEvent.get(id);
     if (!record) return false;
     this.focusRecord = record;
-    this.detachedFraming = null;
+    this.detachedDistanceScale = null;
     this.velocityX = 0;
     this.velocityY = 0;
     this.pendingFocusId = null;
@@ -981,7 +976,7 @@ export class AtlasScene {
     }
 
     this.canvas.dataset.markers = String(this.markers.length);
-    if (this.selectedId && !this.detachedFraming) {
+    if (this.selectedId && this.detachedDistanceScale === null) {
       const selectedRecord = this.markerForEvent.get(this.selectedId);
       if (selectedRecord) this.focusRecord = selectedRecord;
     }
@@ -1031,7 +1026,6 @@ export class AtlasScene {
       if (this.disposed || this.failed) return;
       const first = record.eventIds[0];
       if (!first) return;
-      this.focusEvent(first);
       this.onPick(first, record.eventIds.slice());
     });
     button.addEventListener('pointerenter', () => {
@@ -1303,28 +1297,25 @@ export class AtlasScene {
     const layoutEase = smoothstep(0, 1, this.progress);
     const baseCx = this.mix(comp.cx, this.mobile ? 0.5 : 0.51, layoutEase);
     const baseCy = this.mix(comp.cy, this.mobile ? 0.34 : 0.5, layoutEase);
-    let targetLookX: number;
-    let targetLookY: number;
-
+    const aspect = this.width / this.height;
+    const halfHeight = desiredDistance * TAN_HALF;
+    const halfWidth = halfHeight * aspect;
+    let targetLookX = -(baseCx - 0.5) * 2 * halfWidth;
+    let targetLookY = (baseCy - 0.5) * 2 * halfHeight;
     let fx = baseCx;
     let fy = baseCy;
-    if (this.focusRecord) {
+    // On the globe, rotate the location into view without translating the globe.
+    // Only the thematic layout tracks a marker's projected position.
+    if (this.focusRecord && layoutEase > 0) {
       this.markerPosition(this.focusRecord, this.focusScratch);
       const depth = Math.max(1.1, desiredDistance - this.focusScratch.z);
-      const halfHeight = depth * TAN_HALF;
-      const halfWidth = halfHeight * (this.width / this.height);
-      fx = this.mix(comp.cx, comp.focusX, this.focusRecord.isGlobal ? 0.65 : 1);
-      fy = this.mix(comp.cy, comp.focusY, this.focusRecord.isGlobal ? 0.65 : 1);
-      targetLookX = this.focusScratch.x - (fx - 0.5) * 2 * halfWidth;
-      targetLookY = this.focusScratch.y + (fy - 0.5) * 2 * halfHeight;
-    } else if (this.detachedFraming) {
-      targetLookX = this.detachedFraming.lookX * desiredDistance;
-      targetLookY = this.detachedFraming.lookY * desiredDistance;
-    } else {
-      const halfHeight = desiredDistance * TAN_HALF;
-      const halfWidth = halfHeight * (this.width / this.height);
-      targetLookX = -(baseCx - 0.5) * 2 * halfWidth;
-      targetLookY = (baseCy - 0.5) * 2 * halfHeight;
+      const focusWeight = this.focusRecord.isGlobal ? 0.65 : 1;
+      const focusX = this.mix(comp.cx, comp.focusX, focusWeight);
+      const focusY = this.mix(comp.cy, comp.focusY, focusWeight);
+      targetLookX = this.mix(targetLookX, this.focusScratch.x - (focusX - 0.5) * 2 * depth * TAN_HALF * aspect, layoutEase);
+      targetLookY = this.mix(targetLookY, this.focusScratch.y + (focusY - 0.5) * 2 * depth * TAN_HALF, layoutEase);
+      fx = this.mix(baseCx, focusX, layoutEase);
+      fy = this.mix(baseCy, focusY, layoutEase);
     }
 
     this.desiredLookX = targetLookX;
@@ -1379,8 +1370,10 @@ export class AtlasScene {
     const cameraView = this.camera.position;
     for (const record of this.markers) {
       this.markerPosition(record, tmpVector);
-      let presence = 1;
-      if (!record.isGlobal) {
+      let presence: number;
+      if (record.isGlobal) {
+        presence = smoothstep(0.25, 0.68, this.progress);
+      } else {
         tmpVectorB.copy(tmpVector).normalize();
         tmpVectorC.copy(cameraView).sub(tmpVector).normalize();
         const facing = tmpVectorB.dot(tmpVectorC);
@@ -1615,10 +1608,15 @@ export class AtlasScene {
     this.wake();
   };
 
+  private layoutCameraDistance(): number {
+    return this.mix(this.baseDistance, this.themeDistance, smoothstep(0, 1, this.progress)) * this.zoom;
+  }
+
   private desiredCameraDistance(): number {
-    const targetThemeDistance = this.mix(this.baseDistance, this.themeDistance, smoothstep(0, 1, this.progress));
-    const scale = this.focusRecord ? FOCUS_DISTANCE_SCALE : this.detachedFraming?.distanceScale ?? 1;
-    return targetThemeDistance * scale * this.zoom;
+    const scale = this.focusRecord
+      ? this.focusRecord.isGlobal ? this.mix(1, FOCUS_DISTANCE_SCALE, smoothstep(0, 1, this.progress)) : FOCUS_DISTANCE_SCALE
+      : this.detachedDistanceScale ?? 1;
+    return this.layoutCameraDistance() * scale;
   }
 
   private renderFrame(dt: number): void {
