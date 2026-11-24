@@ -26,10 +26,10 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --ignore-scripts
-      - name: Refresh snapshot from public catalog (keep prior valid snapshot if all feeds fail)
-        run: node scripts/refresh.mjs --catalog presets/public-demo.sources.json || true
       - run: npm run typecheck
       - run: npm test
+      - name: Refresh snapshot from public catalog (keep prior valid snapshot if all feeds fail)
+        run: node scripts/refresh.mjs --catalog presets/public-demo.sources.json || true
       - run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
