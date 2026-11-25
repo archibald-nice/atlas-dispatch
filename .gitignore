@@ -1,15 +1,31 @@
+# Dependencies & build outputs
 node_modules/
 dist/
 /releases/
+
+# Local personal overlays, drafts, scratch & QA captures (NEVER commit)
+/local/
+/drafts/
+/scratch/
+/verification/
 /.archify/
-/verification/*.png
-!/verification/filter-gemma-history.png
-!/verification/filter-globe-stable.png
-!/verification/filter-unlocated-narrow.png
-/verification/*.mp4
-/verification/*.json
-.DS_Store
-*.log
+*.local.json
+*.local.md
+*.draft.md
+
+# Secrets & environment
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*credentials*.json
+
+# OS, logs & local agent/editor caches
+.DS_Store
+*.log
+.codex/
+.claude/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
